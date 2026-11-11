@@ -1,0 +1,1807 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>إنجليزي يومي</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f7f4;--card:#fff;--ink:#1d2321;--mute:#6b7470;--line:#e4e7e2;--pri:#0f766e;--pri2:#e6f4f1;--ok:#16a34a;--ok2:#dcfce7;--bad:#dc2626;--bad2:#fee2e2;--warn:#d97706}
+@media (prefers-color-scheme:dark){:root{--bg:#121614;--card:#1b201e;--ink:#e9eeeb;--mute:#93a09a;--line:#2a312e;--pri:#2dd4bf;--pri2:#16312d;--ok2:#143322;--bad2:#3a1a1a}}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Tajawal,sans-serif;font-size:16px;line-height:1.6}
+.en{font-family:Inter,sans-serif;direction:ltr;unicode-bidi:isolate}
+header{position:sticky;top:0;z-index:5;background:var(--card);border-bottom:1px solid var(--line);padding:10px 16px;display:flex;align-items:center;gap:8px}
+header h1{font-size:19px;margin:0;flex:1;font-weight:800}
+.pill{background:var(--pri2);color:var(--pri);padding:3px 10px;border-radius:99px;font-weight:700;font-size:14px;white-space:nowrap}
+#authBtn{border:1px solid var(--line);background:none;color:var(--ink);border-radius:99px;padding:4px 10px;font:inherit;font-size:13px;cursor:pointer}
+nav{display:flex;gap:6px;overflow-x:auto;padding:10px 16px;max-width:720px;margin:0 auto}
+nav button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--ink);padding:7px 14px;border-radius:99px;font:inherit;font-weight:500;cursor:pointer}
+nav button.on{background:var(--pri);color:#fff;border-color:var(--pri)}
+main{max-width:720px;margin:0 auto;padding:4px 16px 60px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;margin-bottom:12px}
+h2{font-size:20px;margin:4px 0 10px} h3{font-size:17px;margin:0 0 6px}
+.mute{color:var(--mute);font-size:14px}
+.btn{border:0;background:var(--pri);color:#fff;padding:10px 16px;border-radius:12px;font:inherit;font-weight:700;cursor:pointer}
+.btn.ghost{background:var(--pri2);color:var(--pri)} .btn.bad{background:var(--bad)} .btn.ok{background:var(--ok)}
+.btn:disabled{opacity:.5}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.stat{text-align:center} .stat b{display:block;font-size:26px;color:var(--pri)}
+.bar{height:10px;background:var(--line);border-radius:99px;overflow:hidden} .bar i{display:block;height:100%;background:var(--pri);border-radius:99px;transition:width .3s}
+.seg{display:flex;background:var(--line);border-radius:12px;padding:3px;gap:3px;margin-bottom:12px}
+.seg button{flex:1;border:0;background:none;color:var(--ink);padding:7px;border-radius:9px;font:inherit;cursor:pointer}
+.seg button.on{background:var(--card);font-weight:700}
+.flash{min-height:230px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;cursor:pointer;user-select:none}
+.flash .word{font-size:32px;font-weight:700}
+.flash .ar{font-size:22px;font-weight:700;margin-top:8px}
+.flash .ex{margin-top:8px;color:var(--mute)}
+.say{border:0;background:var(--pri2);color:var(--pri);width:38px;height:38px;border-radius:50%;cursor:pointer;font-size:17px;flex:none}
+.opt{display:block;width:100%;text-align:start;border:1px solid var(--line);background:var(--card);color:var(--ink);padding:12px 14px;border-radius:12px;margin-bottom:8px;font:inherit;cursor:pointer}
+.opt.right{background:var(--ok2);border-color:var(--ok)} .opt.wrong{background:var(--bad2);border-color:var(--bad)}
+.item{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--line);cursor:pointer}
+.item:last-child{border-bottom:0} .item .t{flex:1}
+.badge{font-size:12px;padding:2px 8px;border-radius:99px;background:var(--line);color:var(--mute);white-space:nowrap}
+.badge.done{background:var(--ok2);color:var(--ok)}
+.lesson p{margin:6px 0} .exbox{background:var(--pri2);border-radius:10px;padding:10px 12px;margin:8px 0}
+.w-ok{color:var(--ok);font-weight:700} .w-bad{color:var(--bad);text-decoration:underline}
+.mic{width:72px;height:72px;border-radius:50%;border:0;background:var(--pri);color:#fff;font-size:30px;cursor:pointer}
+.mic.rec{background:var(--bad);animation:p 1s infinite}
+@keyframes p{50%{transform:scale(1.08)}}
+.feedback{padding:10px 12px;border-radius:10px;margin-top:8px}
+.feedback.ok{background:var(--ok2)} .feedback.bad{background:var(--bad2)}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:8px 16px;border-radius:99px;font-weight:700;opacity:0;transition:.3s;pointer-events:none}
+.toast.show{opacity:1}
+.dots{display:grid;grid-template-columns:repeat(auto-fill,minmax(34px,1fr));gap:6px}
+.dots i{font-style:normal;text-align:center;font-size:12px;padding:6px 0;border-radius:8px;background:var(--line);color:var(--mute);font-family:Inter,sans-serif}
+.dots i.done{background:var(--pri);color:#fff}
+.dots i.cur{outline:2px solid var(--pri);color:var(--pri);font-weight:700}
+.daycard{border:2px solid var(--pri)}
+.dlist{padding:0 18px;margin:10px 0 14px} .dlist li{margin:4px 0}
+.item.locked{opacity:.55;cursor:default}
+.dots i.test{position:relative} .dots i.test::after{content:"🎓";position:absolute;top:-7px;left:-4px;font-size:11px}
+.steps{display:flex;gap:4px;margin-bottom:12px;direction:ltr}
+.steps span{flex:1;text-align:center;font-size:11px;padding:5px 0;border-radius:8px;background:var(--line);color:var(--mute);font-family:Inter,sans-serif}
+.steps span.done{background:var(--pri2);color:var(--pri)} .steps span.cur{background:var(--pri);color:#fff;font-weight:700}
+.tq{display:flex;gap:10px;padding:10px 0;border-bottom:1px solid var(--line);direction:ltr;text-align:left} .tq:last-child{border-bottom:0}
+.tq .t{flex:1} .qn{flex:none;width:24px;height:24px;border-radius:50%;background:var(--pri2);color:var(--pri);font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;font-family:Inter,sans-serif}
+.chs{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.ch{border:1px solid var(--line);background:var(--card);color:var(--ink);padding:7px 12px;border-radius:10px;cursor:pointer;font-size:14px}
+.ch.sel{border-color:var(--pri);background:var(--pri2);font-weight:600}
+.ch.right,.gap.right{background:var(--ok2);border-color:var(--ok)} .ch.wrong,.gap.wrong{background:var(--bad2);border-color:var(--bad)}
+.gap{width:120px;border:none;border-bottom:2px solid var(--pri);background:var(--pri2);color:var(--ink);padding:4px 6px;font:inherit;font-family:Inter,sans-serif;border-radius:6px 6px 0 0}
+.passage{line-height:1.8;text-align:left}
+textarea#wtext{width:100%;min-height:260px;border:1px solid var(--line);border-radius:12px;padding:12px;font-size:15px;line-height:1.7;background:var(--bg);color:var(--ink);margin:10px 0 6px;resize:vertical}
+.chk{display:flex;gap:10px;align-items:center;padding:9px 0;border-bottom:1px solid var(--line);cursor:pointer} .chk input{width:20px;height:20px;accent-color:var(--pri)}
+details{margin:8px 0} summary{cursor:pointer;color:var(--pri);font-weight:700}
+.band{font-size:64px;font-weight:800;color:var(--pri);font-family:Inter,sans-serif;line-height:1.1;margin-top:6px}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:14px 0;direction:ltr}
+.grid4 div{background:var(--pri2);border-radius:10px;padding:8px 2px} .grid4 b{display:block;font-size:20px;color:var(--pri);font-family:Inter,sans-serif} .grid4 span{font-size:11px;color:var(--mute);font-family:Inter,sans-serif}
+.say.big{width:54px;height:54px;font-size:24px}
+.spin{width:100%;max-width:320px;font-size:24px;text-align:center;padding:12px;border:2px solid var(--line);border-radius:14px;background:var(--bg);color:var(--ink);margin-top:6px}
+.spin:focus{outline:none;border-color:var(--pri)} .spin.right{border-color:var(--ok);background:var(--ok2)} .spin.wrong{border-color:var(--bad);background:var(--bad2)}
+.spword{font-size:26px;letter-spacing:2px;margin-bottom:4px} .lt-ok{color:var(--ok);font-weight:700} .lt-bad{color:var(--bad);font-weight:800;text-decoration:underline}
+.scn{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.scnb{position:relative;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:14px;padding:12px 8px;font:inherit;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:2px}
+.scnb span{font-size:26px} .scnb.on{border:2px solid var(--pri);background:var(--pri2);font-weight:700}
+.scnb em{font-style:normal;font-size:11px;background:var(--pri);color:#fff;border-radius:99px;padding:1px 7px;position:absolute;top:-8px;left:8px}
+.talkbar{position:sticky;top:57px;z-index:4;background:var(--bg);display:flex;align-items:center;gap:8px;padding:8px 0}
+.avatar{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--pri),#6ee7b7);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-family:Inter,sans-serif;font-size:18px}
+.pill.warn{background:var(--bad2);color:var(--bad)}
+#chat{display:flex;flex-direction:column;gap:10px;padding:6px 0 190px;min-height:50vh}
+.bub{max-width:86%;padding:10px 13px;border-radius:16px;line-height:1.55}
+.bub.ai{align-self:flex-end;background:var(--card);border:1px solid var(--line);border-top-right-radius:4px;text-align:left}
+.bub.me{align-self:flex-start;background:var(--pri);color:#fff;border-top-left-radius:4px;text-align:left}
+.bub.err{align-self:center;background:var(--bad2);color:var(--bad);font-size:14px;text-align:center}
+.bub .ar{direction:rtl;text-align:right;margin-top:6px;font-size:14px}
+.bact{display:flex;gap:8px;align-items:center;margin-top:6px}
+.say.sm{width:30px;height:30px;font-size:14px}
+.fix{margin-top:8px;background:#fef3c7;color:#78350f;border-radius:10px;padding:7px 9px;font-size:14px}
+.fix div{direction:rtl;text-align:right;font-family:Tajawal,sans-serif;margin-top:2px}
+.linkb{border:0;background:none;color:var(--pri);font:inherit;font-size:14px;font-weight:700;cursor:pointer;padding:0}
+.talkin{position:fixed;bottom:0;left:0;right:0;background:var(--card);border-top:1px solid var(--line);padding:10px 16px calc(10px + env(safe-area-inset-bottom));z-index:6}
+.talkin>*{max-width:720px;margin-left:auto;margin-right:auto}
+#ttxt{flex:1;min-width:0;border:1px solid var(--line);border-radius:99px;padding:11px 14px;font-size:16px;background:var(--bg);color:var(--ink)}
+#tsend{border-radius:50%;width:46px;height:46px;padding:0;flex:none}
+.mic.small{width:52px;height:52px;font-size:22px;flex:none}
+.hintbox{background:var(--pri2);border-radius:12px;padding:8px;margin-bottom:8px}
+.hintb{display:block;width:100%;text-align:left;border:0;background:var(--card);color:var(--ink);border-radius:9px;padding:8px 10px;margin-bottom:6px;cursor:pointer;font-size:14px}
+.dots3{display:inline-flex;gap:4px} .dots3 i{width:8px;height:8px;border-radius:50%;background:var(--mute);animation:bl 1.2s infinite} .dots3 i:nth-child(2){animation-delay:.2s} .dots3 i:nth-child(3){animation-delay:.4s}
+.dots3.big i{width:14px;height:14px;background:var(--pri)}
+@keyframes bl{0%,80%,100%{opacity:.25}40%{opacity:1}}
+.mist{border-bottom:1px solid var(--line);padding:9px 0} .mist:last-child{border-bottom:0}
+.wrongt{color:var(--bad);text-decoration:line-through;text-decoration-thickness:1px} .rightt{color:var(--ok);font-weight:600;display:flex;align-items:center;gap:6px;justify-content:space-between}
+@media (prefers-color-scheme:dark){.fix{background:#3b2f0b;color:#fde68a}}
+</style>
+</head>
+<body>
+<header>
+  <h1>إنجليزي يومي</h1>
+  <span class="pill" id="hStreak">🔥 0</span>
+  <span class="pill" id="hXp">⭐ 0</span>
+  <button id="authBtn">دخول</button>
+</header>
+<nav id="nav">
+  <button data-tab="home" class="on">الرئيسية</button>
+  <button data-tab="talk">🗣️ محادثة</button>
+  <button data-tab="vocab">المفردات</button>
+  <button data-tab="speak">المحادثة والنطق</button>
+  <button data-tab="grammar">القواعد</button>
+  <button data-tab="biz">إنجليزي الأعمال</button>
+  <button data-tab="ielts">🎓 IELTS</button>
+</nav>
+<main id="app"></main>
+<div class="toast" id="toast"></div>
+
+<script type="module">
+/* ====== إعدادات Firebase — ضع بيانات مشروعك هنا ====== */
+const FB = {
+  apiKey: "AIzaSyC4WCrpS45SnpnD_zJhxp0ptkm_HNEC0Tg",
+  authDomain: "english-4e72f.firebaseapp.com",
+  projectId: "english-4e72f",
+  storageBucket: "english-4e72f.firebasestorage.app",
+  messagingSenderId: "743150580971",
+  appId: "1:743150580971:web:e2aa929ce52a51adf97aae"
+};
+const FB_ON = !FB.apiKey.startsWith("YOUR");
+const DAILY_GOAL = 50;
+
+/* ====== المحتوى ====== */
+const W_G = `achieve|يحقق / ينجز|She worked hard to achieve her goals.
+afford|يقدر على تحمّل التكلفة|We can't afford a new truck this year.
+approach|أسلوب / طريقة|We need a different approach to this problem.
+available|متوفر / متاح|Is the manager available today?
+avoid|يتجنب|Try to avoid driving in the afternoon heat.
+benefit|فائدة / يستفيد|Regular exercise has many benefits.
+challenge|تحدٍّ|Learning a new language is a real challenge.
+consider|يفكر في / يأخذ بالاعتبار|I'm considering studying for a master's degree.
+convince|يقنع|He convinced me to try the new system.
+deal with|يتعامل مع|I have to deal with a lot of emails every day.
+efficient|فعّال / كفء|The new pump is more efficient than the old one.
+enhance|يعزز / يحسّن|Good photos can enhance your online store.
+estimate|يقدّر / تقدير|Can you estimate the total cost?
+figure out|يكتشف الحل / يفهم|I finally figured out how to fix the bug.
+improve|يحسّن / يتحسن|My English is improving every week.
+maintain|يحافظ على / يصون|It's important to maintain the equipment regularly.
+mention|يذكر|He didn't mention the price.
+obvious|واضح|The answer was obvious.
+opportunity|فرصة|This trip is a great opportunity to meet suppliers.
+postpone|يؤجل|They postponed the meeting until Monday.
+reliable|موثوق / يُعتمد عليه|We need a reliable supplier.
+require|يتطلب|This job requires good communication skills.
+reduce|يقلل|We want to reduce water consumption.
+run out of|ينفد منه|We ran out of fuel on the way back.
+set up|يجهّز / يؤسس|I set up a new website for the business.
+suggest|يقترح|I suggest we start early tomorrow.
+temporary|مؤقت|This is only a temporary solution.
+worth|يستحق|The trip was worth the money.
+although|مع أن / بالرغم من|Although it was hot, we finished the work.
+eventually|في النهاية|Eventually, they agreed to our offer.
+accurate|دقيق|Please make sure the numbers are accurate.
+actually|في الحقيقة|Actually, I've changed my mind.
+admit|يعترف|He admitted that he made a mistake.
+advice|نصيحة|Can I give you some advice?
+affect|يؤثر على|The heat affects the quality of the dates.
+aim|هدف / يهدف|We aim to finish by the end of the month.
+annoyed|منزعج|I was annoyed because the delivery was late.
+apply for|يقدّم على|She applied for a job at the bank.
+appointment|موعد|I have an appointment at 10 am.
+arrange|يرتّب / ينظّم|Can you arrange a meeting with the manager?
+assume|يفترض|I assume the price includes delivery.
+aware|على علم / مدرك|Are you aware of the new rules?
+borrow|يستعير / يستلف|Can I borrow your charger?
+brief|مختصر|Please keep your answer brief.
+careless|مهمل|It was a careless mistake.
+cause|يسبب / سبب|The storm caused a lot of damage.
+claim|يدّعي / مطالبة|He claims the product is original.
+complain|يشتكي|The tenants complained about the noise.
+confident|واثق|I feel more confident speaking English now.
+confirm|يؤكد|Can you confirm the booking by email?
+crowded|مزدحم|The market is very crowded on Fridays.
+damage|ضرر / يتلف|The rain damaged the boxes.
+delay|تأخير / يؤخر|Sorry for the delay in replying.
+depend on|يعتمد على|The price depends on the quantity.
+describe|يصف|Can you describe the problem?
+determine|يحدد|We need to determine the main cause.
+disappointed|خاب أمله / محبط|I was disappointed with the quality.
+effort|جهد|Learning a language takes time and effort.
+encourage|يشجع|My friends encouraged me to start the business.
+ensure|يضمن / يتأكد|Please ensure the doors are locked.
+expand|يوسّع / يتوسع|We plan to expand the farm next year.
+expect|يتوقع|I expect the shipment to arrive on Sunday.
+experience|خبرة / تجربة|He has ten years of experience.
+familiar|مألوف|This place looks familiar.
+fix|يصلح|Can you fix the air conditioner?
+gradually|تدريجياً|The weather is gradually getting cooler.
+handle|يتعامل مع / يتولى|Who will handle the customer complaints?
+hire|يوظّف / يستأجر|We need to hire two more workers.
+honest|صادق|To be honest, I don't like the design.
+ignore|يتجاهل|Don't ignore the warning light.
+immediately|فوراً|Please call me immediately.
+include|يشمل / يتضمن|Does the price include VAT?
+increase|يزيد / زيادة|Prices increased this year.
+instead|بدلاً من ذلك|Let's take the car instead.
+issue|مشكلة / مسألة|We have an issue with the water pump.
+lack|نقص / يفتقر|The project failed due to lack of planning.
+likely|محتمل / غالباً|It's likely to rain tomorrow.
+look forward to|يتطلع إلى|I look forward to meeting you.
+manage|يدير / يتمكن من|I managed to finish everything on time.
+measure|يقيس / إجراء|We measure the water level every day.
+mistake|خطأ|Everyone makes mistakes.
+necessary|ضروري|Is it necessary to book in advance?
+notice|يلاحظ / إشعار|Did you notice any changes?
+occur|يحدث|The problem occurs every morning.
+prefer|يفضّل|I prefer tea to coffee.
+prevent|يمنع|Shade nets prevent damage from the sun.
+progress|تقدم|I'm making good progress with my English.
+provide|يوفّر / يقدّم|The company provides free training.
+recent|حديث / مؤخر|Have you seen the recent report?
+recommend|ينصح بـ / يوصي|Can you recommend a good hotel?
+refuse|يرفض|He refused to sign the contract.
+remind|يذكّر|Please remind me to call him.
+replace|يستبدل|We need to replace the old tires.
+rely on|يعتمد على|You can rely on him.
+responsible|مسؤول|Who is responsible for maintenance?
+spare|احتياطي / فاضي|Do you have a spare key?
+straightforward|بسيط وواضح|The process is quite straightforward.
+success|نجاح|The event was a big success.
+sufficient|كافٍ|We don't have sufficient water.
+take care of|يهتم بـ / يتولى|I'll take care of the paperwork.
+therefore|لذلك|The price is high; therefore, we need a discount.
+tough|صعب|It was a tough decision.
+turn down|يرفض|They turned down our offer.
+urgent|عاجل|This is urgent. Please reply today.
+variety|تنوع / تشكيلة|The store offers a wide variety of fabrics.
+weigh up|يوازن بين|Let's weigh up the pros and cons.`;
+
+const W_B = `deadline|موعد نهائي|The deadline for the project is Thursday.
+invoice|فاتورة|Please send the invoice by email.
+quotation|عرض سعر|We received three quotations for the work.
+contract|عقد|Both parties signed the contract.
+negotiate|يتفاوض|We negotiated a lower price.
+supplier|مورّد|Our supplier is based in China.
+revenue|إيرادات|Revenue increased by 20% this year.
+profit margin|هامش الربح|The profit margin on this product is small.
+follow up|يتابع|I'll follow up with them tomorrow.
+agenda|جدول أعمال الاجتماع|What's on the agenda for today's meeting?
+attach|يرفق|I've attached the report to this email.
+budget|ميزانية|We are over budget this month.
+shipment|شحنة|The shipment will arrive next week.
+wholesale|بالجملة|We buy fabric at wholesale prices.
+retail|بالتجزئة|The retail price is higher than the wholesale price.
+warranty|ضمان|The AC has a two-year warranty.
+tenant|مستأجر|The tenant asked to renew the lease.
+lease|عقد إيجار|The lease ends in March.
+inventory|مخزون|We need to check the inventory before ordering.
+refund|استرداد المبلغ|The customer asked for a refund.
+minimum order|الحد الأدنى للطلب|What is the minimum order quantity?
+sample|عيّنة|Can you send us a sample first?
+accountant|محاسب|Our accountant prepares the reports every month.
+branch|فرع|The bank has a branch in Al Ain.
+client|عميل|We have a meeting with a new client.
+customs|الجمارك|The goods are waiting at customs.
+delivery|توصيل / تسليم|Delivery takes three to five days.
+discount|خصم|Can you give us a 10% discount?
+down payment|دفعة مقدمة|We paid a 30% down payment.
+expenses|مصروفات|Our expenses went up this month.
+freight|الشحن / أجرة الشحن|Who pays for the freight?
+installment|قسط|You can pay in monthly installments.
+investment|استثمار|Real estate is a long-term investment.
+loss|خسارة|The company made a loss last year.
+manufacturer|المصنّع|We buy directly from the manufacturer.
+order|طلب / يطلب|I'd like to place an order.
+partnership|شراكة|We are looking for a long-term partnership.
+proposal|عرض / مقترح|We submitted our proposal last week.
+receipt|إيصال|Can I have a receipt, please?
+renew|يجدد|I need to renew my license.
+shareholder|مساهم|The shareholders meet once a year.
+dividend|توزيعات أرباح|The company pays dividends twice a year.
+tax|ضريبة|Is tax included in the price?
+tender|مناقصة|We are preparing a bid for the tender.`;
+
+const P_RAW = {
+ "يومي":`Could you say that again, please?|ممكن تعيدها لو سمحت؟
+I'm not sure I understand what you mean.|مو متأكد إني فاهم قصدك.
+What do you recommend?|وش تنصحني؟
+I've been working on this for a while.|صار لي فترة أشتغل على هذا.
+Let me think about it and get back to you.|خلني أفكر وأرجع لك.
+It depends on the situation.|يعتمد على الوضع.
+I'd rather do it tomorrow.|أفضّل أسويها بكرة.
+How's it going?|شلونك؟ كيف الأمور؟
+I'm running a bit late.|متأخر شوي.
+Sorry, I didn't catch that.|عذراً، ما لقطت الكلام.
+What do you mean by that?|وش تقصد بهذا؟
+That sounds like a good idea.|تبدو فكرة زينة.
+I'll let you know.|بعلمك.
+No worries, take your time.|لا تشيل هم، خذ راحتك.
+I couldn't agree more.|أتفق معك تماماً.
+Can you give me a hand?|تقدر تساعدني؟
+I'm really looking forward to it.|متحمس لها وايد.`,
+ "سفر":`I'd like to check in, please.|أبغى أسجل دخول لو سمحت.
+How long does it take to get to the airport?|كم يستغرق الوصول للمطار؟
+Is breakfast included?|هل الفطور مشمول؟
+Can I pay by card?|أقدر أدفع بالبطاقة؟
+Could you recommend a good restaurant nearby?|ممكن تنصحني بمطعم زين قريب؟
+I have a reservation for two nights.|عندي حجز لليلتين.
+Where can I get a taxi?|وين ألقى تاكسي؟
+Could you write down the address for me?|ممكن تكتب لي العنوان؟
+How much is it altogether?|كم المجموع؟
+My flight has been delayed.|رحلتي تأخرت.
+Is there a pharmacy near here?|فيه صيدلية قريبة؟
+I'd like a window seat, please.|أبغى مقعد عند الشباك.
+Can I see the menu, please?|ممكن أشوف المنيو؟
+Do you have this in a different color?|عندكم هذا بلون ثاني؟`,
+ "أعمال":`Could you send me a quotation for this product?|ممكن ترسل لي عرض سعر لهذا المنتج؟
+What is the minimum order quantity?|كم الحد الأدنى للطلب؟
+Can you offer a better price for bulk orders?|تقدر تعطيني سعر أفضل للطلبات الكبيرة؟
+When can you ship the order?|متى تقدر تشحن الطلب؟
+Let's schedule a meeting for next week.|خلنا نحدد اجتماع الأسبوع الجاي.
+Please find the invoice attached.|مرفق لكم الفاتورة.
+We need to finish this before the deadline.|لازم نخلص هذا قبل الموعد النهائي.
+Thank you for your quick reply.|شكراً على ردك السريع.
+I'm calling about the order we placed last week.|أتصل بخصوص الطلب اللي سويناه الأسبوع الماضي.
+Could you tell me more about your products?|ممكن تعطيني تفاصيل أكثر عن منتجاتكم؟
+What are your payment terms?|وش شروط الدفع عندكم؟
+Do you offer free samples?|تعطون عينات مجانية؟
+How long is the warranty?|كم مدة الضمان؟
+We'd like to place a trial order first.|نبغى نسوي طلب تجريبي أول.
+Can you deliver to the UAE?|توصلون للإمارات؟
+That's a bit higher than our budget.|هذا أعلى شوي من ميزانيتنا.
+Let me check with my partners.|خلني أراجع شركائي.
+Could we meet halfway on the price?|نتفق على حل وسط في السعر؟
+I'll send you the details by email.|برسل لك التفاصيل بالإيميل.
+Let's keep in touch.|خلنا على تواصل.
+Who should I contact about this?|مع مين أتواصل بخصوص هذا؟
+We're very interested in working with you.|مهتمين جداً نتعامل معكم.
+Can you confirm the delivery date?|تقدر تأكد موعد التسليم؟
+The goods arrived damaged.|البضاعة وصلت تالفة.
+We need this done by Thursday.|نبغى هذا يخلص قبل الخميس.
+Sorry to keep you waiting.|آسف إني خليتك تنتظر.
+Could you put that in writing?|ممكن تكتب هذا رسمياً؟
+Let's go over the main points.|خلنا نراجع النقاط الرئيسية.`
+};
+
+const parse=(txt,c)=>txt.trim().split("\n").map(l=>{const [en,ar,ex]=l.split("|");return{id:en,en,ar,ex,c}});
+// يدمج القوائم بالتناسب عشان كل يوم يكون فيه خليط
+const mix=(...ls)=>ls.flatMap((L,k)=>L.map((x,i)=>[i/L.length+k*1e-6,x])).sort((a,b)=>a[0]-b[0]).map(p=>p[1]);
+const WORDS_PER_DAY=5, PHR_PER_DAY=2;
+const VOCAB = mix(parse(W_G,"g"),parse(W_B,"b")).map((v,i)=>({...v,day:Math.floor(i/WORDS_PER_DAY)+1}));
+const PHRASES = mix(...Object.entries(P_RAW).map(([c,t])=>parse(t,c))).map((p,i)=>({...p,day:Math.floor(i/PHR_PER_DAY)+1}));
+const PCATS = Object.keys(P_RAW);
+const NDAYS = Math.ceil(VOCAB.length/WORDS_PER_DAY);
+
+const LESSONS = [
+ {id:"pp",title:"Present Perfect أو Past Simple؟",kind:"g",body:`
+  <p><b class="en">Past Simple</b> للحدث اللي صار وانتهى في وقت محدد بالماضي.</p>
+  <div class="exbox en">I visited China <b>last year</b>.</div>
+  <p><b class="en">Present Perfect (have/has + V3)</b> للحدث اللي صار بوقت غير محدد، أو أثره مستمر للحين، أو بدأ وما زال مستمر.</p>
+  <div class="exbox en">I <b>have visited</b> China twice.<br>She <b>has worked</b> here <b>since</b> 2020.</div>
+  <p>كلمات تدلك: <span class="en">yesterday, ago, last, in 2019</span> ← ماضي بسيط. <span class="en">already, yet, ever, never, since, for, just</span> ← مضارع تام.</p>`,
+  qs:[
+   {q:"I ___ the contract yesterday.",o:["have signed","signed","sign"],a:1,w:"yesterday وقت محدد في الماضي ← Past Simple."},
+   {q:"We ___ this supplier since 2021.",o:["used","have used","use"],a:1,w:"since تعني بدأ وما زال مستمر ← Present Perfect."},
+   {q:"___ you ever ___ to Japan?",o:["Did / go","Have / been","Do / go"],a:1,w:"ever مع التجربة في الحياة ← Present Perfect."},
+   {q:"The shipment ___ two days ago.",o:["arrived","has arrived","arrives"],a:0,w:"ago تدل على وقت محدد ← Past Simple."},
+   {q:"I ___ my homework yet.",o:["didn't finish","haven't finished","don't finish"],a:1,w:"yet تأتي مع Present Perfect في النفي والسؤال."}
+  ]},
+ {id:"cond",title:"الجمل الشرطية (If)",kind:"g",body:`
+  <p><b class="en">First conditional</b> — شي ممكن يصير فعلاً:</p>
+  <div class="exbox en">If it <b>rains</b>, we <b>will stay</b> at home.</div>
+  <p class="mute">If + مضارع بسيط ، will + فعل</p>
+  <p><b class="en">Second conditional</b> — شي خيالي أو غير مرجح الحين:</p>
+  <div class="exbox en">If I <b>had</b> more time, I <b>would learn</b> French.</div>
+  <p class="mute">If + ماضي بسيط ، would + فعل. ومع be نستخدم were لكل الضمائر: <span class="en">If I were you…</span></p>`,
+  qs:[
+   {q:"If you send the invoice today, I ___ it tomorrow.",o:["paid","will pay","would pay"],a:1,w:"شي ممكن يصير ← First conditional: will + فعل."},
+   {q:"If I ___ a million dirhams, I would buy a new farm.",o:["have","had","will have"],a:1,w:"افتراض خيالي ← Second conditional: If + ماضي."},
+   {q:"If I ___ you, I would accept the offer.",o:["was","am","were"],a:2,w:"العبارة الصحيحة الرسمية: If I were you."},
+   {q:"We ___ the meeting if the manager is busy.",o:["will postpone","postponed","would postponed"],a:0,w:"is (مضارع) في جملة الشرط ← will في جملة الجواب."},
+   {q:"If he studied more, he ___ the exam.",o:["will pass","would pass","passes"],a:1,w:"studied (ماضي) ← would + فعل."}
+  ]},
+ {id:"pass",title:"المبني للمجهول (Passive)",kind:"g",body:`
+  <p>نستخدمه لما يكون الأهم هو الشي اللي انعمل له الفعل، مو الفاعل.</p>
+  <p>القاعدة: <b class="en">be (بالزمن المناسب) + V3</b></p>
+  <div class="exbox en">The workers clean the tanks. → The tanks <b>are cleaned</b> every week.<br>Someone stole my phone. → My phone <b>was stolen</b>.<br>They will deliver the goods. → The goods <b>will be delivered</b> tomorrow.</div>`,
+  qs:[
+   {q:"The dates ___ by hand every season.",o:["pick","are picked","picked"],a:1,w:"مضارع مجهول: are + V3."},
+   {q:"The building ___ in 1998.",o:["was built","built","is build"],a:0,w:"ماضي مجهول: was + V3."},
+   {q:"Your order ___ tomorrow.",o:["will deliver","will be delivered","delivered"],a:1,w:"مستقبل مجهول: will be + V3."},
+   {q:"The emails ___ yet.",o:["haven't been sent","didn't sent","aren't send"],a:0,w:"مضارع تام مجهول: have/has been + V3."}
+  ]},
+ {id:"modal",title:"الأفعال المساعدة (must, should, might…)",kind:"g",body:`
+  <div class="exbox"><span class="en"><b>must</b></span> — ضرورة قوية أو قانون: <span class="en">You must wear a seatbelt.</span></div>
+  <div class="exbox"><span class="en"><b>have to</b></span> — ضرورة من الظروف: <span class="en">I have to work on Saturday.</span></div>
+  <div class="exbox"><span class="en"><b>should</b></span> — نصيحة: <span class="en">You should see a doctor.</span></div>
+  <div class="exbox"><span class="en"><b>might / may</b></span> — احتمال: <span class="en">It might rain later.</span></div>
+  <div class="exbox"><span class="en"><b>don't have to</b></span> = مو لازم، لكن <span class="en"><b>mustn't</b></span> = ممنوع.</div>`,
+  qs:[
+   {q:"You look tired. You ___ get some rest.",o:["should","must not","might"],a:0,w:"نصيحة ← should."},
+   {q:"Employees ___ smoke inside the building. It's not allowed.",o:["don't have to","mustn't","should"],a:1,w:"ممنوع ← mustn't."},
+   {q:"I'm not sure, but the price ___ go up next month.",o:["must","might","has to"],a:1,w:"احتمال ← might."},
+   {q:"Tomorrow is a holiday, so I ___ go to work.",o:["mustn't","don't have to","shouldn't"],a:1,w:"مو لازم (مو ممنوع) ← don't have to."}
+  ]},
+ {id:"prep",title:"حروف الوقت: in / on / at",kind:"g",body:`
+  <div class="exbox"><b class="en">at</b> — ساعة محددة ولحظات: <span class="en">at 5 pm, at night, at the weekend</span></div>
+  <div class="exbox"><b class="en">on</b> — أيام وتواريخ: <span class="en">on Monday, on 15 March, on my birthday</span></div>
+  <div class="exbox"><b class="en">in</b> — شهور وسنين وفصول وفترات: <span class="en">in April, in 2027, in summer, in the morning</span></div>`,
+  qs:[
+   {q:"The fair starts ___ April.",o:["on","at","in"],a:2,w:"الشهور ← in."},
+   {q:"Let's meet ___ Sunday.",o:["on","in","at"],a:0,w:"الأيام ← on."},
+   {q:"The meeting is ___ 10 o'clock.",o:["in","at","on"],a:1,w:"الساعة ← at."},
+   {q:"I usually exercise ___ the evening.",o:["at","on","in"],a:2,w:"in the morning / afternoon / evening (لكن at night)."}
+  ]},
+ {id:"ger",title:"Gerund أو Infinitive؟ (doing / to do)",kind:"g",body:`
+  <p>بعض الأفعال يجي بعدها <b class="en">V-ing</b>: <span class="en">enjoy, avoid, finish, consider, suggest, mind</span></p>
+  <div class="exbox en">I enjoy <b>working</b> on the farm.</div>
+  <p>وبعضها يجي بعدها <b class="en">to + فعل</b>: <span class="en">want, decide, plan, hope, need, agree, promise</span></p>
+  <div class="exbox en">We decided <b>to expand</b> the business.</div>
+  <p>وبعد حروف الجر دائماً V-ing: <span class="en">I'm interested in <b>learning</b> English.</span></p>`,
+  qs:[
+   {q:"I'm considering ___ an MBA.",o:["to start","starting","start"],a:1,w:"consider + V-ing."},
+   {q:"They agreed ___ the price.",o:["lowering","to lower","lower"],a:1,w:"agree + to + فعل."},
+   {q:"He's good at ___ problems.",o:["solving","to solve","solve"],a:0,w:"بعد حرف الجر at ← V-ing."},
+   {q:"We plan ___ the store next month.",o:["opening","to open","open"],a:1,w:"plan + to + فعل."}
+  ]},
+ {id:"email",title:"كتابة الإيميل الرسمي",kind:"b",body:`
+  <p><b>البداية:</b> <span class="en">Dear Mr. Chen, / Dear Sir or Madam, / Hello Sarah,</span></p>
+  <p><b>سبب الإيميل:</b> <span class="en">I'm writing to inquire about… / I'm writing regarding…</span></p>
+  <p><b>طلب بأدب:</b> <span class="en">Could you please… / I would appreciate it if you could…</span></p>
+  <p><b>المرفقات:</b> <span class="en">Please find attached… / I've attached…</span></p>
+  <p><b>الختام:</b> <span class="en">I look forward to hearing from you. / Best regards,</span></p>
+  <div class="exbox en">Dear Mr. Chen,<br>I'm writing to inquire about your abaya fabrics. Could you please send me your price list and the minimum order quantity?<br>I look forward to hearing from you.<br>Best regards,<br>Salem</div>`,
+  qs:[
+   {q:"Best way to start a formal email to someone you don't know:",o:["Hey!","Dear Sir or Madam,","What's up,"],a:1,w:"Dear Sir or Madam للرسمي وما تعرف الاسم."},
+   {q:"I'm writing to ___ about your prices.",o:["inquire","ask you that","asking"],a:0,w:"I'm writing to inquire about… عبارة رسمية جاهزة."},
+   {q:"Please find ___ the invoice.",o:["attach","attached","attaching"],a:1,w:"Please find attached…"},
+   {q:"The most polite request:",o:["Send me the price.","I want the price now.","I would appreciate it if you could send the price."],a:2,w:"I would appreciate it if you could… أكثر أدباً."}
+  ]},
+ {id:"meet",title:"الاجتماعات والتفاوض",kind:"b",body:`
+  <p><b>إبداء الرأي:</b> <span class="en">In my opinion… / From my point of view…</span></p>
+  <p><b>الموافقة:</b> <span class="en">I agree with you. / That makes sense.</span></p>
+  <p><b>الاعتراض بأدب:</b> <span class="en">I see your point, but… / I'm afraid I can't agree.</span></p>
+  <p><b>التفاوض:</b> <span class="en">Is there any flexibility on the price? / If you can lower the price, we can increase the order.</span></p>
+  <p><b>الختام:</b> <span class="en">Let's wrap up. / Let's put that in writing.</span></p>`,
+  qs:[
+   {q:"A polite way to disagree:",o:["You're wrong.","I see your point, but…","No way."],a:1,w:"I see your point, but… اعتراض مهذب."},
+   {q:"Asking for a discount politely:",o:["Is there any flexibility on the price?","Give me discount.","Price too high!"],a:0,w:"Is there any flexibility on the price? عبارة تفاوض احترافية."},
+   {q:"\"That makes sense\" means:",o:["ما فهمت","كلامك منطقي","هذا غالي"],a:1,w:"That makes sense = كلامك منطقي / مفهوم."},
+   {q:"To end a meeting you say:",o:["Let's wrap up.","Let's wrap in.","Let's close down us."],a:0,w:"wrap up = ننهي ونلخّص."}
+  ]}
+];
+
+
+LESSONS.push(
+ {id:"future",title:"المستقبل: will أو going to؟",kind:"g",body:`
+  <p><b class="en">will</b> — قرار لحظي، وعد، أو توقع عام:</p>
+  <div class="exbox en">The phone is ringing. I<b>'ll</b> answer it.<br>Don't worry, I <b>will</b> help you.</div>
+  <p><b class="en">going to</b> — خطة مقررة مسبقاً، أو توقع عليه دليل واضح:</p>
+  <div class="exbox en">I'<b>m going to</b> visit China in April.<br>Look at the clouds! It'<b>s going to</b> rain.</div>
+  <p>وللمواعيد المرتبة نستخدم المضارع المستمر: <span class="en">I'm meeting the supplier tomorrow.</span></p>`,
+  qs:[
+   {q:"The phone is ringing. I ___ answer it.",o:["'ll","am going to","answer"],a:0,w:"قرار لحظي ← will."},
+   {q:"We ___ open a new branch next year. We've already signed the lease.",o:["will","are going to","opened"],a:1,w:"خطة مقررة ← going to."},
+   {q:"Look at those clouds! It ___ rain.",o:["will","is going to","rains"],a:1,w:"توقع عليه دليل ← going to."},
+   {q:"Don't worry, I ___ call you as soon as I arrive.",o:["will","am going","going to"],a:0,w:"وعد ← will."}
+  ]},
+ {id:"comp",title:"المقارنة والتفضيل",kind:"g",body:`
+  <p>الصفات القصيرة: <span class="en">cheap → <b>cheaper</b> → <b>the cheapest</b></span></p>
+  <p>الصفات الطويلة: <span class="en">expensive → <b>more</b> expensive → <b>the most</b> expensive</span></p>
+  <p>الشاذة: <span class="en">good → better → the best ، bad → worse → the worst</span></p>
+  <p>التساوي: <span class="en">as … as</span></p>
+  <div class="exbox en">This supplier is cheaper than the other one.<br>Our dates are as good as theirs.</div>`,
+  qs:[
+   {q:"This supplier is ___ than the other one.",o:["cheap","cheaper","cheapest"],a:1,w:"مقارنة بين اثنين ← cheaper than."},
+   {q:"It's the ___ hotel in the city.",o:["most expensive","more expensive","expensivest"],a:0,w:"صفة طويلة للتفضيل ← the most."},
+   {q:"The traffic today is ___ than yesterday.",o:["bad","worse","worst"],a:1,w:"bad شاذة ← worse."},
+   {q:"Our dates are ___ good ___ theirs.",o:["as / as","more / than","so / that"],a:0,w:"التساوي ← as … as."}
+  ]},
+ {id:"rel",title:"أسماء الوصل: who / which / where / whose",kind:"g",body:`
+  <div class="exbox"><b class="en">who</b> للأشخاص: <span class="en">The man who called you is our accountant.</span></div>
+  <div class="exbox"><b class="en">which</b> للأشياء: <span class="en">This is the truck which we bought last year.</span></div>
+  <div class="exbox"><b class="en">that</b> تنفع للاثنين في الكلام العادي.</div>
+  <div class="exbox"><b class="en">where</b> للأماكن: <span class="en">That's the market where we sell our dates.</span></div>
+  <div class="exbox"><b class="en">whose</b> للملكية: <span class="en">The tenant whose car is outside…</span></div>`,
+  qs:[
+   {q:"The man ___ called you is our accountant.",o:["which","who","where"],a:1,w:"شخص ← who."},
+   {q:"This is the truck ___ we bought last year.",o:["who","which","whose"],a:1,w:"شيء ← which."},
+   {q:"That's the market ___ we sell our dates.",o:["where","which","who"],a:0,w:"مكان ← where."},
+   {q:"The tenant ___ car is blocking the gate must move it.",o:["who","whose","which"],a:1,w:"ملكية ← whose."}
+  ]},
+ {id:"used",title:"used to و be used to",kind:"g",body:`
+  <p><b class="en">used to + فعل</b> — عادة في الماضي ما عادت موجودة:</p>
+  <div class="exbox en">I <b>used to</b> live in Abu Dhabi.<br>I <b>didn't use to</b> like coffee.<br><b>Did</b> you <b>use to</b> play football?</div>
+  <p><b class="en">be used to + V-ing</b> — متعود على الشي:</p>
+  <div class="exbox en">I'm used to <b>waking</b> up early.</div>`,
+  qs:[
+   {q:"I ___ play football every day when I was a kid.",o:["use to","used to","am used to"],a:1,w:"عادة ماضية ← used to."},
+   {q:"Did you ___ live in Al Ain?",o:["used to","use to","using to"],a:1,w:"بعد did نقول use to (بدون d)."},
+   {q:"I'm used to ___ in hot weather.",o:["work","working","worked"],a:1,w:"be used to + V-ing."},
+   {q:"He ___ like coffee, but now he loves it.",o:["didn't use to","didn't used to","not used to"],a:0,w:"النفي: didn't use to."}
+  ]},
+ {id:"phrasal",title:"أفعال مركبة مهمة في الشغل",kind:"b",body:`
+  <div class="exbox"><b class="en">go over</b> = يراجع: <span class="en">Let's go over the contract.</span></div>
+  <div class="exbox"><b class="en">call off</b> = يلغي: <span class="en">The meeting was called off.</span></div>
+  <div class="exbox"><b class="en">put off</b> = يؤجل: <span class="en">Don't put it off until next week.</span></div>
+  <div class="exbox"><b class="en">look into</b> = يبحث ويتحقق: <span class="en">I'll look into the problem.</span></div>
+  <div class="exbox"><b class="en">carry out</b> = ينفّذ: <span class="en">The contractor carried out the work.</span></div>
+  <div class="exbox"><b class="en">come up with</b> = يطلع بفكرة: <span class="en">She came up with a great idea.</span></div>`,
+  qs:[
+   {q:"We need to ___ the contract before signing.",o:["go over","go off","go on"],a:0,w:"go over = يراجع."},
+   {q:"The meeting was ___ because the manager was sick.",o:["called off","called up","called in"],a:0,w:"call off = يلغي."},
+   {q:"I'll ___ the problem and get back to you.",o:["look into","look after","look up"],a:0,w:"look into = يتحقق من."},
+   {q:"She ___ a great idea for the new store.",o:["came up with","came across","came over"],a:0,w:"come up with = يطلع بفكرة."}
+  ]},
+ {id:"phone",title:"المكالمات الهاتفية",kind:"b",body:`
+  <p><b>تعريف نفسك:</b> <span class="en">Hello, this is Ahmed from Green Farms.</span></p>
+  <p><b>طلب شخص:</b> <span class="en">Could I speak to Mr. Lee, please?</span></p>
+  <p><b>سبب الاتصال:</b> <span class="en">I'm calling about…</span></p>
+  <p><b>الانتظار:</b> <span class="en">Could you hold on a moment?</span></p>
+  <p><b>ترك رسالة:</b> <span class="en">Can I leave a message?</span></p>
+  <p><b>إذا ما فهمت:</b> <span class="en">Could you speak a bit more slowly, please?</span></p>
+  <p><b>الختام:</b> <span class="en">I'll call you back later. / Thanks for calling.</span></p>`,
+  qs:[
+   {q:"Hello, ___ Ahmed from Green Farms.",o:["this is","I am the","here is me"],a:0,w:"على الهاتف نقول this is، مو I am."},
+   {q:"___ speak to Mr. Lee, please?",o:["Can I to","Could I","May I to"],a:1,w:"Could I speak to…?"},
+   {q:"He's not here. Can I ___ a message?",o:["leave","let","give up"],a:0,w:"leave a message = يترك رسالة."},
+   {q:"Could you ___ on a moment?",o:["hold","keep","stay"],a:0,w:"hold on = انتظر على الخط."}
+  ]},
+ {id:"complain",title:"الشكاوى وحل المشاكل",kind:"b",body:`
+  <p><b>تقديم شكوى بأدب:</b></p>
+  <div class="exbox en">I'm afraid there's a problem with my order.<br>Unfortunately, the goods arrived damaged.<br>I'd like a replacement or a refund.</div>
+  <p><b>الرد على شكوى:</b></p>
+  <div class="exbox en">I'm sorry to hear that.<br>We'll look into it right away.<br>Thank you for your patience.</div>`,
+  qs:[
+   {q:"Polite start to a complaint:",o:["I'm afraid there's a problem with my order.","Your order is bad!","Why you do this?"],a:0,w:"I'm afraid… بداية مهذبة."},
+   {q:"Asking for a solution:",o:["I'd like a replacement or a refund.","Give money now.","Change it fast."],a:0,w:"I'd like… طلب مهذب وواضح."},
+   {q:"Responding to an unhappy customer:",o:["Not my problem.","I'm sorry to hear that. We'll look into it.","OK, bye."],a:1,w:"تعاطف + وعد بالمتابعة."},
+   {q:"Thank you for your ___.",o:["patience","patient","patiently"],a:0,w:"بعد your نحتاج اسم: patience."}
+  ]}
+);
+// ترتيب الدروس على الأيام (درس كل يومين — الأيام الفردية)
+const LESSON_ORDER=["prep","future","pp","email","comp","modal","phone","ger","pass","meet","used","rel","phrasal","cond","complain"];
+LESSON_ORDER.forEach((id,k)=>{LESSONS.find(l=>l.id===id).day=k*2+1});
+const dayLesson=d=>LESSONS.find(l=>l.day===d);
+
+/* ====== الحالة والحفظ ====== */
+const LS_KEY = "eng-daily-v1";
+const blank = ()=>({talks:[],customWords:{},spell:{},spellMastered:0,ielts:{},ieltsWriting:{},xp:0,streak:0,lastDay:"",todayXp:0,cards:{},lessons:{},speak:{},doneDays:0,lastDoneDate:""});
+let S = Object.assign(blank(), JSON.parse(localStorage.getItem(LS_KEY)||"{}"));
+let fb = null, user = null, saveT = null;
+
+const dayStr = d=>d.toLocaleDateString("en-CA");
+const today = ()=>dayStr(new Date());
+const yesterday = ()=>{const d=new Date();d.setDate(d.getDate()-1);return dayStr(d)};
+
+function save(){
+  try{localStorage.setItem(LS_KEY,JSON.stringify(S))}catch(e){}
+  if(fb && user){
+    clearTimeout(saveT);
+    saveT=setTimeout(()=>fb.setDoc(fb.doc(fb.db,"englishProgress",user.uid),{...S,updatedAt:Date.now()}).catch(e=>console.error(e)),800);
+  }
+}
+function addXP(n){
+  if(!n)return;
+  const t=today();
+  if(S.lastDay!==t){ S.streak = S.lastDay===yesterday()? S.streak+1 : 1; S.lastDay=t; S.todayXp=0; }
+  S.xp+=n; S.todayXp+=n; save(); header(); toast(`+${n} ⭐`);
+}
+function header(){
+  const alive = S.lastDay===today()||S.lastDay===yesterday();
+  $("#hStreak").textContent="🔥 "+(alive?S.streak:0);
+  $("#hXp").textContent="⭐ "+S.xp;
+}
+function todayXp(){ return S.lastDay===today()? S.todayXp:0 }
+
+/* ====== نظام الأيام: يوم جديد يفتح كل يوم ====== */
+const doneToday = ()=>S.lastDoneDate===today();
+const programDone = ()=>S.doneDays>=NDAYS;
+// آخر يوم مفتوح (المحتوى المتاح في الأقسام)
+const openDay = ()=>Math.min(NDAYS, doneToday()||programDone()? S.doneDays : S.doneDays+1);
+const dayWords = d=>VOCAB.filter(v=>v.day===d);
+const dayPhrases = d=>PHRASES.filter(p=>p.day===d);
+const learned = ()=>VOCAB.filter(v=>S.cards[v.id]);
+
+/* ====== Firebase ====== */
+if(FB_ON){
+  const V="10.12.2", base=`https://www.gstatic.com/firebasejs/${V}/`;
+  const [A,Au,F]=await Promise.all([import(base+"firebase-app.js"),import(base+"firebase-auth.js"),import(base+"firebase-firestore.js")]);
+  const app=A.initializeApp(FB);
+  fb={auth:Au.getAuth(app),db:F.getFirestore(app),doc:F.doc,getDoc:F.getDoc,setDoc:F.setDoc,Au};
+  Au.onAuthStateChanged(fb.auth, async u=>{
+    user=u; $("#authBtn").textContent=u?"خروج":"دخول";
+    if(u){
+      const snap=await fb.getDoc(fb.doc(fb.db,"englishProgress",u.uid));
+      if(snap.exists()){ const r=snap.data(); delete r.updatedAt; S=Object.assign(blank(),r); try{localStorage.setItem(LS_KEY,JSON.stringify(S))}catch(e){} }
+      else save();
+      header(); render();
+    }
+  });
+}
+$("#authBtn").onclick=async()=>{
+  if(!fb){ toast("أضف بيانات Firebase أولاً — التقدم محفوظ على الجهاز حالياً"); return; }
+  if(user){ await fb.Au.signOut(fb.auth); return; }
+  try{ await fb.Au.signInWithPopup(fb.auth,new fb.Au.GoogleAuthProvider()); }catch(e){ toast("تعذّر تسجيل الدخول"); console.error(e); }
+};
+
+/* ====== أدوات ====== */
+function $(s){return document.querySelector(s)}
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/"/g,"&quot;").replace(/</g,"&lt;")}
+function shuffle(a){a=[...a];for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a}
+function toast(m){const t=$("#toast");t.textContent=m;t.classList.add("show");clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove("show"),1800)}
+let voice=null;
+function pickVoice(){const vs=speechSynthesis.getVoices();voice=vs.find(v=>/en-US/.test(v.lang)&&/Samantha|Google|Natural/i.test(v.name))||vs.find(v=>/^en/.test(v.lang))||null}
+if("speechSynthesis" in window){pickVoice();speechSynthesis.onvoiceschanged=pickVoice}
+function speak(text,rate=0.95){
+  if(!("speechSynthesis" in window))return;
+  speechSynthesis.cancel(); const u=new SpeechSynthesisUtterance(text);
+  u.lang="en-US"; u.rate=rate; if(voice)u.voice=voice; speechSynthesis.speak(u);
+}
+document.addEventListener("click",e=>{const b=e.target.closest("[data-say]");if(b){e.stopPropagation();speak(b.dataset.say,b.dataset.slow?0.65:0.95)}});
+const sayBtn=(t,slow)=>`<button class="say" data-say="${esc(t)}"${slow?' data-slow="1"':""} title="${slow?"ببطء":"استمع"}">${slow?"🐢":"🔊"}</button>`;
+
+/* ====== التنقل ====== */
+let tab="home";
+$("#nav").onclick=e=>{const b=e.target.closest("button");if(!b)return;tab=b.dataset.tab;document.querySelectorAll("#nav button").forEach(x=>x.classList.toggle("on",x===b));render();scrollTo(0,0)};
+function go(t){document.querySelector(`#nav [data-tab="${t}"]`).click()}
+function render(){ ensureCustom(); if(C&&C.active&&tab!=="talk")stopTalk(); ({talk:TalkTab,home:Home,vocab:Vocab,speak:Speak,grammar:()=>LessonList("g"),biz:Biz,ielts:IeltsTab})[tab](); }
+
+/* ====== الرئيسية ====== */
+const DAYS=[0,1,2,4,7,15,30];
+const dueCards=(c)=>learned().filter(v=>(!c||v.c===c)&&S.cards[v.id].due<=Date.now());
+function hoursToMidnight(){const n=new Date(),m=new Date(n);m.setHours(24,0,0,0);const h=Math.floor((m-n)/36e5),mi=Math.floor((m-n)%36e5/6e4);const hw=h>=3&&h<=10?'ساعات':'ساعة';return h?`${h} ${hw} و${mi} دقيقة`:`${mi} دقيقة`}
+function Home(){
+  const tx=todayXp(), pct=Math.min(100,Math.round(tx/DAILY_GOAL*100));
+  const n=S.doneDays+1, L=dayLesson(n);
+  let dayCard;
+  if(programDone()){
+    dayCard=`<div class="card" style="text-align:center"><h2>🏆 خلصت برنامج ${NDAYS} يوم</h2><p class="mute">كمّل مراجعة البطاقات يومياً عشان تثبت الكلمات.</p></div>`;
+  }else if(doneToday()){
+    dayCard=`<div class="card" style="text-align:center"><h2>✅ خلصت درس اليوم</h2><p>اليوم ${n} يفتح بكرة — بعد ${hoursToMidnight()}</p><p class="mute">وإلى ذلك الوقت راجع بطاقاتك أو تدرّب على النطق.</p></div>`;
+  }else{
+    dayCard=`<div class="card daycard">
+      <div class="row" style="justify-content:space-between"><h2 style="margin:0">درس اليوم</h2><span class="pill">اليوم ${n} من ${NDAYS}</span></div>
+      <ul class="dlist">
+        <li>📚 ${dayWords(n).length} كلمات جديدة: <span class="en mute">${dayWords(n).map(w=>w.en).join(", ")}</span></li>
+        <li>✍️ إملاء: تكتب كلمات اليوم${spellDue().length?` + ${Math.min(10,spellDue().length)} من أخطائك السابقة`:""}</li>
+        ${dayPhrases(n).length?`<li>🎤 ${dayPhrases(n).length} جمل للنطق</li>`:""}
+        ${L?`<li>📝 درس: ${L.title}</li>`:""}
+        <li>✏️ اختبار قصير</li>
+        ${ieltsTest(n)?`<li>🎓 <b>اختبار IELTS المصغّر رقم ${ieltsTest(n).n}</b></li>`:""}
+      </ul>
+      <button class="btn" id="startDay" style="width:100%">${S.dayProg?.n===n?"كمّل درس اليوم":"ابدأ درس اليوم"}</button>
+    </div>`;
+  }
+  const dots=Array.from({length:NDAYS},(_,i)=>{const d=i+1;const cls=d<=S.doneDays?"done":(d===n&&!doneToday()?"cur":"");return`<i class="${cls}${ieltsTest(d)?" test":""}" title="اليوم ${d}${ieltsTest(d)?" — اختبار IELTS":""}">${d}</i>`}).join("");
+  $("#app").innerHTML=`
+  ${dayCard}
+  <div class="card"><h3>رحلتك</h3><div class="dots">${dots}</div></div>
+  <div class="card">
+    <h3>هدف النقاط اليومي</h3>
+    <div class="row" style="justify-content:space-between"><span class="mute">${tx} / ${DAILY_GOAL} نقطة</span><span class="mute">${pct>=100?"✅":""}</span></div>
+    <div class="bar" style="margin-top:6px"><i style="width:${pct}%"></i></div>
+  </div>
+  <div class="grid">
+    <div class="card stat"><b>${learned().length}</b><span class="mute">كلمة تعلمتها</span></div>
+    <div class="card stat"><b>${dueCards().length}</b><span class="mute">بطاقة للمراجعة</span></div>
+  </div>
+  ${(()=>{const t=(S.talks||[]).filter(x=>x.date===today());return `<div class="card"><div class="row" style="justify-content:space-between"><h3 style="margin:0">🗣️ محادثة 10 دقائق</h3>${t.length?`<span class="badge done">✅ سويتها اليوم</span>`:""}</div><p class="mute">تكلم بصوتك مع ${PARTNER} وتطلع لك تصحيحات وتقرير بالنهاية.</p><button class="btn ${t.length?"ghost":""}" id="htalk">${t.length?"محادثة ثانية":"ابدأ المحادثة"}</button></div>`})()}
+  ${spellDue().length?`<div class="card" style="border-color:var(--bad)"><h3>✍️ كلمات غلطت في كتابتها</h3><p class="mute">عندك ${spellDue().length} كلمة جاها دورها للإملاء.</p><button class="btn" id="hsp">اكتبها الحين</button></div>`:""}
+  ${dueCards().length?`<div class="card"><h3>🔁 مراجعة اليوم</h3><p class="mute">كلمات من الأيام السابقة جاها دورها.</p><button class="btn ghost" id="hv">راجعها</button></div>`:""}
+  ${!FB_ON?`<div class="card mute">💡 التقدم محفوظ على هذا الجهاز فقط. أضف بيانات Firebase في الكود عشان يتزامن مع حسابك.</div>`:(!user?`<div class="card mute">سجّل دخول عشان يتحفظ تقدمك في حسابك.</div>`:"")}`;
+  const sd=$("#startDay"); if(sd)sd.onclick=()=>startDay(n);
+  const hsp=$("#hsp"); if(hsp)hsp.onclick=()=>{vMode="spell";vCat="";go("vocab");setTimeout(()=>$("#spStart")?.click(),0)};
+  $("#htalk").onclick=()=>go("talk");
+  const hv=$("#hv"); if(hv)hv.onclick=()=>{vMode="cards";vCat="";go("vocab")};
+}
+
+/* ====== تدفق درس اليوم ====== */
+let D=null;
+function startDay(n){
+  const steps=["words","spell",dayPhrases(n).length?"phrases":null,dayLesson(n)?"lesson":null,"quiz",ieltsTest(n)?"ielts":null].filter(Boolean);
+  D = S.dayProg?.n===n ? {...S.dayProg,steps} : {n,s:0,i:0,steps,ok:0};
+  dayStep();
+}
+function saveProg(){S.dayProg={n:D.n,s:D.s,i:D.i,ok:D.ok};save()}
+function dayHead(label){
+  const pct=Math.round(D.s/D.steps.length*100);
+  return `<div class="row" style="justify-content:space-between;margin-bottom:6px"><button class="btn ghost" id="dback">→ الرئيسية</button><span class="mute">اليوم ${D.n} — ${label}</span></div><div class="bar" style="margin-bottom:12px"><i style="width:${pct}%"></i></div>`;
+}
+function nextStep(){D.s++;D.i=0;saveProg();dayStep()}
+function bindBack(){$("#dback").onclick=()=>{D=null;render()}}
+function dayStep(){
+  scrollTo(0,0);
+  const st=D.steps[D.s];
+  if(!st)return finishDay();
+  if(st==="words"){
+    const W=dayWords(D.n), v=W[D.i];
+    if(!S.cards[v.id]){S.cards[v.id]={box:0,due:Date.now()+864e5};save()}
+    $("#app").innerHTML=dayHead(`كلمة ${D.i+1} من ${W.length}`)+`
+      <div class="card flash" style="cursor:default">
+        <span class="badge">${v.c==="b"?"أعمال":"عامة"}</span>
+        <div class="row" style="justify-content:center;margin-top:8px"><span class="word en">${v.en}</span>${sayBtn(v.en)}${sayBtn(v.en,true)}</div>
+        <div class="ar">${v.ar}</div>
+        <div class="row" style="justify-content:center"><div class="ex en">${v.ex}</div>${sayBtn(v.ex)}</div>
+      </div>
+      <button class="btn" id="dn" style="width:100%">${D.i<W.length-1?"الكلمة التالية":"التالي: الإملاء"}</button>`;
+    speak(v.en); bindBack();
+    $("#dn").onclick=()=>{D.i++; if(D.i>=W.length)nextStep(); else {saveProg();dayStep()}};
+  }
+  else if(st==="phrases"){
+    const P=dayPhrases(D.n), p=P[D.i];
+    $("#app").innerHTML=dayHead(`جملة ${D.i+1} من ${P.length}`)+`
+      <div class="card" style="text-align:center">
+        <span class="badge">${p.c}</span>
+        <h2 class="en" style="margin-top:8px">${p.en}</h2><p>${p.ar}</p>
+        <div class="row" style="justify-content:center">${sayBtn(p.en)}${sayBtn(p.en,true)}</div>
+        <div style="margin:18px 0 6px"><button class="mic" id="mic">🎤</button></div>
+        <p class="mute" id="hint">${SR?"استمع، بعدين اضغط المايك وقلها":"متصفحك ما يدعم المايك — استمع وردد بصوت عالي"}</p>
+        <div id="res"></div>
+      </div>
+      <button class="btn" id="dn" style="width:100%">${D.i<P.length-1?"الجملة التالية":"التالي"}</button>`;
+    bindBack();
+    $("#mic").onclick=()=>listen(p.en);
+    $("#dn").onclick=()=>{D.i++; if(D.i>=P.length)nextStep(); else {saveProg();dayStep()}};
+  }
+  else if(st==="lesson"){
+    openLesson(dayLesson(D.n).id, nextStep, dayHead("الدرس"));
+    bindBack();
+  }
+  else if(st==="spell"){
+    const W=dayWords(D.n);
+    const extra=shuffle(spellDue().filter(v=>!W.includes(v))).slice(0,10);
+    dictation({list:[...W,...extra],head:dayHead,after:bindBack,onDone:nextStep,title:"إملاء"});
+  }
+  else if(st==="ielts"){
+    startTest(ieltsTest(D.n).id, nextStep);
+  }
+  else if(st==="quiz"){
+    const W=dayWords(D.n);
+    if(D.i>=W.length){nextStep();return}
+    const v=W[D.i];
+    const pool=learned().filter(x=>x!==v);
+    const opts=shuffle([v,...shuffle(pool).slice(0,3)]);
+    $("#app").innerHTML=dayHead(`اختبار ${D.i+1} من ${W.length}`)+`<div class="card">
+      <p class="mute">وش معنى:</p>
+      <div class="row"><h2 class="en" style="margin:0">${v.en}</h2>${sayBtn(v.en)}</div>
+      <div style="margin-top:12px" id="qo">${opts.map(o=>`<button class="opt" data-id="${esc(o.id)}">${o.ar}</button>`).join("")}</div>
+      <div id="qf"></div></div>`;
+    bindBack();
+    $("#qo").onclick=e=>{
+      const b=e.target.closest(".opt"); if(!b||$("#qo").dataset.done)return; $("#qo").dataset.done=1;
+      const right=b.dataset.id===v.id;
+      document.querySelectorAll("#qo .opt").forEach(x=>{if(x.dataset.id===v.id)x.classList.add("right")});
+      if(!right){b.classList.add("wrong");S.cards[v.id]={box:0,due:Date.now()}} else {D.ok++;addXP(1)}
+      $("#qf").innerHTML=`<p class="en mute">${v.ex}</p><button class="btn" id="qn" style="width:100%">التالي</button>`;
+      $("#qn").onclick=()=>{D.i++;saveProg();dayStep()};
+    };
+  }
+}
+function finishDay(){
+  const n=D.n; D=null; S.dayProg=null;
+  if(n===S.doneDays+1){S.doneDays=n; S.lastDoneDate=today();}
+  addXP(20);
+  $("#app").innerHTML=`<div class="card" style="text-align:center;padding:30px 16px">
+    <div style="font-size:54px">🎉</div><h2>خلصت اليوم ${n}!</h2>
+    <p>${n<NDAYS?`اليوم ${n+1} يفتح بكرة إن شاء الله.`:`خلصت البرنامج كامل 🏆`}</p>
+    <p class="mute">الكلمات انضافت لبطاقات المراجعة وبتطلع لك في وقتها.</p>
+    <button class="btn" id="hm">الرئيسية</button></div>`;
+  $("#hm").onclick=render;
+}
+
+/* ====== المفردات ====== */
+let vMode="cards", vCat="", queue=[], qi=0, flipped=false;
+function Vocab(){
+  $("#app").innerHTML=`
+   <div class="seg" id="vm"><button data-m="cards" class="${vMode==="cards"?"on":""}">بطاقات المراجعة</button><button data-m="spell" class="${vMode==="spell"?"on":""}">إملاء</button><button data-m="quiz" class="${vMode==="quiz"?"on":""}">اختبار</button><button data-m="list" class="${vMode==="list"?"on":""}">كلماتي</button></div>
+   <div class="seg" id="vc"><button data-c="" class="${vCat===""?"on":""}">الكل</button><button data-c="g" class="${vCat==="g"?"on":""}">عامة</button><button data-c="b" class="${vCat==="b"?"on":""}">أعمال</button></div>
+   <div id="vbox"></div>`;
+  $("#vm").onclick=e=>{const b=e.target.closest("button");if(!b)return;vMode=b.dataset.m;Vocab()};
+  $("#vc").onclick=e=>{const b=e.target.closest("button");if(!b)return;vCat=b.dataset.c;Vocab()};
+  if(!learned().length){$("#vbox").innerHTML=`<div class="card" style="text-align:center"><p>ما تعلمت كلمات للحين.</p><button class="btn" id="gh">ابدأ درس اليوم</button></div>`;$("#gh").onclick=()=>go("home");return}
+  if(vMode==="cards"){queue=shuffle(dueCards(vCat)).slice(0,20);qi=0;flipped=false;card()}
+  else if(vMode==="spell"){spellPanel()}
+  else if(vMode==="quiz"){quizN=0;quizOk=0;qz()}
+  else listWords();
+}
+function card(){
+  const box=$("#vbox");
+  if(qi>=queue.length){
+    box.innerHTML=`<div class="card" style="text-align:center"><h3>🎉 ما فيه مراجعة مستحقة</h3><p class="mute">البطاقات ترجع لك تلقائياً في وقتها.</p><button class="btn ghost" id="more">راجع كلمات إضافية</button></div>`;
+    $("#more").onclick=()=>{queue=shuffle(learned().filter(v=>!vCat||v.c===vCat)).slice(0,10);qi=0;flipped=false;card()};
+    return;
+  }
+  const v=queue[qi];
+  box.innerHTML=`
+   <p class="mute">${qi+1} / ${queue.length}</p>
+   <div class="card flash" id="fc">
+     <div class="row" style="justify-content:center"><span class="word en">${v.en}</span>${sayBtn(v.en)}</div>
+     ${flipped?`<div class="ar">${v.ar}</div><div class="row" style="justify-content:center"><div class="ex en">${v.ex}</div>${sayBtn(v.ex)}</div>`:`<p class="mute">تذكر المعنى، بعدين اضغط</p>`}
+   </div>
+   ${flipped?`<div class="grid"><button class="btn bad" id="no">ما عرفتها</button><button class="btn ok" id="yes">عرفتها</button></div>`:""}`;
+  $("#fc").onclick=()=>{if(!flipped){flipped=true;card();speak(v.en)}};
+  if(flipped){ $("#yes").onclick=()=>grade(v,true); $("#no").onclick=()=>grade(v,false); }
+}
+function grade(v,ok){
+  const c=S.cards[v.id]||{box:0,due:0};
+  c.box= ok? Math.min(c.box+1,DAYS.length-1) : 0;
+  c.due= Date.now()+DAYS[c.box]*864e5 - (c.box?36e5:0);
+  S.cards[v.id]=c;
+  if(!ok) queue.push(v);
+  qi++; flipped=false;
+  if(ok) addXP(2); else save();
+  card();
+}
+let quizN=0, quizOk=0;
+function qz(){
+  const pool=learned().filter(v=>!vCat||v.c===vCat);
+  if(pool.length<4){$("#vbox").innerHTML=`<div class="card mute">تحتاج 4 كلمات على الأقل في هذا القسم.</div>`;return}
+  if(quizN>=10){
+    $("#vbox").innerHTML=`<div class="card" style="text-align:center"><h3>النتيجة: ${quizOk} / 10</h3><button class="btn" id="again">اختبار جديد</button></div>`;
+    $("#again").onclick=()=>{quizN=0;quizOk=0;qz()};return;
+  }
+  const v=pool[Math.random()*pool.length|0];
+  const opts=shuffle([v,...shuffle(pool.filter(x=>x!==v)).slice(0,3)]);
+  $("#vbox").innerHTML=`<div class="card">
+    <p class="mute">سؤال ${quizN+1} / 10 — وش معنى:</p>
+    <div class="row"><h2 class="en" style="margin:0">${v.en}</h2>${sayBtn(v.en)}</div>
+    <div style="margin-top:12px" id="qo">${opts.map(o=>`<button class="opt" data-id="${esc(o.id)}">${o.ar}</button>`).join("")}</div>
+    <div id="qf"></div></div>`;
+  $("#qo").onclick=e=>{
+    const b=e.target.closest(".opt"); if(!b||$("#qo").dataset.done)return; $("#qo").dataset.done=1;
+    const right=b.dataset.id===v.id;
+    document.querySelectorAll("#qo .opt").forEach(x=>{if(x.dataset.id===v.id)x.classList.add("right")});
+    if(!right)b.classList.add("wrong"); else {quizOk++;addXP(1)}
+    quizN++;
+    $("#qf").innerHTML=`<p class="en mute">${v.ex}</p><button class="btn" id="qn">التالي</button>`;
+    $("#qn").onclick=qz;
+  };
+}
+function listWords(){
+  const L=learned().filter(v=>!vCat||v.c===vCat);
+  $("#vbox").innerHTML=`<div class="card">${L.map(v=>{const b=S.cards[v.id]?.box||0;return`
+    <div class="item" style="cursor:default"><div class="t"><b class="en">${v.en}</b> — ${v.ar}<div class="mute en">${v.ex}</div></div>
+    <span class="badge ${b>=3?"done":""}">${b>=3?"محفوظة":"يوم "+v.day}</span>${sayBtn(v.en)}</div>`}).join("")||'<p class="mute">ما فيه كلمات هنا للحين.</p>'}</div>`;
+}
+
+/* ====== المحادثة والنطق ====== */
+const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+let pCat="الكل", pIdx=0, rec=null;
+function Speak(){
+  const od=openDay();
+  const list=PHRASES.filter(p=>p.day<=od&&(pCat==="الكل"||p.c===pCat));
+  const seg=`<div class="seg" id="pc">${["الكل",...PCATS].map(k=>`<button data-c="${k}" class="${k===pCat?"on":""}">${k}</button>`).join("")}</div>`;
+  if(!list.length){
+    $("#app").innerHTML=seg+`<div class="card" style="text-align:center"><p>جمل هذا القسم تفتح مع الأيام الجاية.</p></div>`;
+    $("#pc").onclick=e=>{const b=e.target.closest("button");if(!b)return;pCat=b.dataset.c;pIdx=0;Speak()};
+    return;
+  }
+  if(pIdx>=list.length)pIdx=0;
+  const p=list[pIdx], best=S.speak[p.en];
+  const locked=PHRASES.length-PHRASES.filter(x=>x.day<=od).length;
+  $("#app").innerHTML=seg+`
+   <div class="card" style="text-align:center">
+     <p class="mute">${pIdx+1} / ${list.length}</p>
+     <h2 class="en">${p.en}</h2>
+     <p>${p.ar}</p>
+     <div class="row" style="justify-content:center">${sayBtn(p.en)}${sayBtn(p.en,true)}</div>
+     <div style="margin:18px 0 6px"><button class="mic" id="mic">🎤</button></div>
+     <p class="mute" id="hint">${SR?"اضغط المايك وقل الجملة":"متصفحك ما يدعم التعرّف على الصوت — جرّب Chrome أو Safari الحديث"}</p>
+     <div id="res">${best!=null?`<p class="mute">أفضل نتيجة لك: ${best}%</p>`:""}</div>
+     <div class="grid" style="margin-top:12px"><button class="btn ghost" id="prev">السابقة</button><button class="btn ghost" id="next">التالية</button></div>
+   </div>
+   <div class="card"><h3>جملك</h3>${list.map((x,i)=>`<div class="item" data-i="${i}"><div class="t en">${x.en}</div>${S.speak[x.en]!=null?`<span class="badge ${S.speak[x.en]>=80?"done":""}">${S.speak[x.en]}%</span>`:""}</div>`).join("")}
+   ${locked?`<p class="mute">🔒 ${locked} جملة تفتح مع الأيام الجاية</p>`:""}</div>`;
+  $("#pc").onclick=e=>{const b=e.target.closest("button");if(!b)return;pCat=b.dataset.c;pIdx=0;Speak()};
+  $("#prev").onclick=()=>{pIdx=(pIdx-1+list.length)%list.length;Speak()};
+  $("#next").onclick=()=>{pIdx=(pIdx+1)%list.length;Speak()};
+  document.querySelectorAll(".item[data-i]").forEach(it=>it.onclick=()=>{pIdx=+it.dataset.i;Speak();scrollTo(0,0)});
+  $("#mic").onclick=()=>listen(p.en);
+}
+const norm=s=>s.toLowerCase().replace(/[’']/g,"'").replace(/[^a-z0-9' ]/g," ").split(/\s+/).filter(Boolean);
+function scoreSpeech(target,said){
+  const T=norm(target), S2=norm(said);
+  const dp=Array.from({length:T.length+1},()=>Array(S2.length+1).fill(0));
+  for(let i=T.length-1;i>=0;i--)for(let j=S2.length-1;j>=0;j--)dp[i][j]=T[i]===S2[j]?dp[i+1][j+1]+1:Math.max(dp[i+1][j],dp[i][j+1]);
+  const ok=new Set();let i=0,j=0;
+  while(i<T.length&&j<S2.length){if(T[i]===S2[j]){ok.add(i);i++;j++}else if(dp[i+1][j]>=dp[i][j+1])i++;else j++}
+  return {pct:Math.round(ok.size/T.length*100), T, ok};
+}
+function listen(target){
+  if(!SR){toast("التعرف على الصوت غير مدعوم في هذا المتصفح");return}
+  if(rec){rec.stop();return}
+  speechSynthesis.cancel();
+  rec=new SR(); rec.lang="en-US"; rec.interimResults=false; rec.maxAlternatives=5;
+  $("#mic").classList.add("rec"); $("#hint").textContent="أسمعك… تكلم الحين";
+  rec.onresult=e=>{
+    const alts=[...e.results[0]].map(a=>a.transcript);
+    let best=null,bestSaid="";
+    for(const a of alts){const r=scoreSpeech(target,a);if(!best||r.pct>best.pct){best=r;bestSaid=a}}
+    const prev=S.speak[target]??0;
+    if(best.pct>prev)S.speak[target]=best.pct;
+    if(best.pct>=80&&prev<80)addXP(5); else save();
+    $("#res").innerHTML=`
+      <div class="feedback ${best.pct>=80?"ok":"bad"}">
+        <b style="font-size:22px">${best.pct}%</b> ${best.pct>=90?"ممتاز 👏":best.pct>=80?"زين جداً":best.pct>=50?"قريب، جرّب مرة ثانية":"حاول مرة ثانية بهدوء"}
+        <p class="en" style="margin:8px 0 0">${best.T.map((w,i)=>`<span class="${best.ok.has(i)?"w-ok":"w-bad"}">${w}</span>`).join(" ")}</p>
+        <p class="mute en" style="margin:4px 0 0">You said: "${esc(bestSaid)}"</p>
+      </div>`;
+  };
+  rec.onerror=e=>{toast(e.error==="not-allowed"?"اسمح للموقع باستخدام المايك":"ما سمعت شي، جرّب مرة ثانية")};
+  rec.onend=()=>{rec=null;const m=$("#mic");if(m){m.classList.remove("rec");$("#hint").textContent="اضغط المايك وقل الجملة"}};
+  rec.start();
+}
+
+/* ====== الدروس (قواعد + أعمال) ====== */
+function LessonList(kind,el="#app",title){
+  const od=openDay();
+  const L=LESSONS.filter(l=>l.kind===kind).sort((a,b)=>a.day-b.day);
+  const html=`<div class="card">${title?`<h3>${title}</h3>`:""}${L.map(l=>{const s=S.lessons[l.id],open=l.day<=od;return`
+    <div class="item${open?"":" locked"}" ${open?`data-l="${l.id}"`:""}><div class="t">${open?"":"🔒 "}${l.title}</div><span class="badge ${s!=null?"done":""}">${!open?`يفتح يوم ${l.day}`:s!=null?`${s}/${l.qs.length}`:`${l.qs.length} أسئلة`}</span></div>`}).join("")}</div>`;
+  $(el).innerHTML=html;
+  document.querySelectorAll("[data-l]").forEach(it=>it.onclick=()=>openLesson(it.dataset.l));
+}
+let LS=null;
+function openLesson(id,onDone,top){
+  const l=LESSONS.find(x=>x.id===id); LS={l,i:-1,ok:0,onDone};
+  $("#app").innerHTML=(top||`<button class="btn ghost" id="back" style="margin-bottom:10px">→ رجوع</button>`)+`
+    <div class="card lesson"><h2>${l.title}</h2>${l.body}<button class="btn" id="startQ" style="margin-top:10px">ابدأ التمارين</button></div><div id="qz"></div>`;
+  if(!top)$("#back").onclick=render;
+  $("#startQ").onclick=()=>{$("#startQ").remove();nextQ()};
+  scrollTo(0,0);
+}
+function nextQ(){
+  LS.i++; const {l}=LS, box=$("#qz");
+  if(LS.i>=l.qs.length){
+    const prev=S.lessons[l.id];
+    if(prev==null||LS.ok>prev)S.lessons[l.id]=LS.ok;
+    addXP(LS.ok*5); save();
+    box.innerHTML=`<div class="card" style="text-align:center"><h3>النتيجة: ${LS.ok} / ${l.qs.length}</h3>
+      <div class="row" style="justify-content:center">${LS.onDone?`<button class="btn" id="cont">متابعة</button>`:`<button class="btn ghost" id="retry">أعد الدرس</button><button class="btn" id="done">رجوع للدروس</button>`}</div></div>`;
+    if(LS.onDone)$("#cont").onclick=LS.onDone;
+    else{$("#retry").onclick=()=>openLesson(l.id); $("#done").onclick=render;}
+    return;
+  }
+  const q=l.qs[LS.i];
+  box.innerHTML=`<div class="card"><p class="mute">سؤال ${LS.i+1} / ${l.qs.length}</p>
+    <h3 class="en">${q.q}</h3><div id="qo">${q.o.map((o,i)=>`<button class="opt en" data-i="${i}">${o}</button>`).join("")}</div><div id="qf"></div></div>`;
+  $("#qo").onclick=e=>{
+    const b=e.target.closest(".opt"); if(!b||$("#qo").dataset.done)return; $("#qo").dataset.done=1;
+    const i=+b.dataset.i, right=i===q.a;
+    document.querySelectorAll("#qo .opt")[q.a].classList.add("right");
+    if(!right)b.classList.add("wrong"); else LS.ok++;
+    $("#qf").innerHTML=`<div class="feedback ${right?"ok":"bad"}">${right?"✅ صح":"❌ خطأ"} — ${q.w}</div><button class="btn" id="qn" style="margin-top:10px">التالي</button>`;
+    $("#qn").onclick=nextQ;
+  };
+  box.scrollIntoView({behavior:"smooth",block:"start"});
+}
+
+/* ====== إنجليزي الأعمال ====== */
+function Biz(){
+  const od=openDay();
+  const bp=PHRASES.filter(p=>p.c==="أعمال"&&p.day<=od);
+  const bw=learned().filter(v=>v.c==="b").length;
+  $("#app").innerHTML=`<div id="bl"></div>
+   <div class="card"><h3>جمل الأعمال</h3>${bp.map(p=>`<div class="item" style="cursor:default"><div class="t"><span class="en">${p.en}</span><div class="mute">${p.ar}</div></div>${sayBtn(p.en)}</div>`).join("")||'<p class="mute">تفتح مع الأيام الجاية.</p>'}
+   ${bp.length?`<button class="btn ghost" id="bsp" style="margin-top:10px">تدرّب على نطقها 🎤</button>`:""}</div>
+   <div class="card"><h3>مفردات الأعمال</h3><p class="mute">تعلمت ${bw} من ${VOCAB.filter(v=>v.c==="b").length} كلمة.</p>${bw?`<button class="btn ghost" id="bv">راجعها</button>`:""}</div>`;
+  LessonList("b","#bl","دروس");
+  const s=$("#bsp"); if(s)s.onclick=()=>{pCat="أعمال";pIdx=0;go("speak")};
+  const v=$("#bv"); if(v)v.onclick=()=>{vCat="b";vMode="cards";go("vocab")};
+}
+
+/* ====== اختبارات IELTS المصغّرة (كل 3 أيام) ====== */
+const P1=(a,b,c)=>[a,b,c];
+const ITESTS=[
+{ // 1
+ L:{title:"Booking a hotel room",script:`A: Good morning, Palm Hotel. How can I help you?
+B: Hi, I'd like to book a room for next weekend.
+A: Certainly. How many nights?
+B: Two nights, Friday and Saturday.
+A: A double room is 450 dirhams per night, including breakfast.
+B: That's fine. My name is Khalid Saeed.
+A: Thank you. Could I have a phone number?
+B: Yes, it's 050 731 2286.
+A: Great. Check-in is from 2 pm. Is there anything else?
+B: Yes, do you have parking?
+A: Yes, parking is free for guests.`,qs:[
+  {t:"gap",q:"Number of nights: ___",a:["2","two"]},
+  {t:"gap",q:"Price per night: ___ dirhams",a:["450"]},
+  {t:"mc",q:"Breakfast is…",o:["included","50 dirhams extra","not available"],a:0},
+  {t:"gap",q:"Check-in time: from ___ pm",a:["2","two"]},
+  {t:"mc",q:"Parking is…",o:["free","30 dirhams a day","not available"],a:0}]},
+ R:{title:"The Date Palm",text:`The date palm has been grown in the Arabian Peninsula for thousands of years. It is well suited to hot, dry climates, but it needs a reliable supply of water at its roots. A healthy palm can produce more than 100 kilograms of fruit each year and may remain productive for over 60 years. Traditionally, every part of the tree was used: the leaves for roofs and baskets, the trunk for building, and the seeds as animal feed. Today, dates remain an important part of local culture and hospitality. However, farmers face challenges such as water shortages and the red palm weevil, an insect that damages the trunk from the inside.`,qs:[
+  {t:"tfng",q:"Date palms need very little water.",a:"F"},
+  {t:"tfng",q:"A palm can continue producing fruit for more than 60 years.",a:"T"},
+  {t:"tfng",q:"Date palm leaves were used to make medicine.",a:"NG"},
+  {t:"mc",q:"The red palm weevil damages…",o:["the leaves","the trunk","the fruit"],a:1},
+  {t:"gap",q:"The seeds were used as animal ___.",a:["feed"]}]},
+ W:{type:"essay",prompt:"Some people prefer to work for a large company, while others prefer to run their own small business. Discuss both views and give your own opinion."},
+ S:{p1:P1("Where are you from?","Do you work or study?","What do you like to do in your free time?"),p2:"Describe a place you like to visit.\nYou should say:\n• where it is\n• how often you go there\n• what you do there\nand explain why you like it."}
+},
+{ // 2
+ L:{title:"City Library information",script:`Welcome to the City Library. The library is open from 8 am to 10 pm, Sunday to Thursday, and from 2 pm to 10 pm on Saturday. It is closed on Fridays. Members can borrow up to five books at a time for three weeks. The computer room is on the second floor, and the café is next to the main entrance. Membership is free for students. For everyone else, it costs 100 dirhams a year.`,qs:[
+  {t:"mc",q:"On Fridays the library is…",o:["open 8 am – 10 pm","open 2 pm – 10 pm","closed"],a:2},
+  {t:"gap",q:"Members can borrow up to ___ books.",a:["5","five"]},
+  {t:"gap",q:"Books can be kept for ___ weeks.",a:["3","three"]},
+  {t:"mc",q:"The computer room is on the…",o:["ground floor","first floor","second floor"],a:2},
+  {t:"gap",q:"Yearly membership for non-students: ___ dirhams",a:["100"]}]},
+ R:{title:"Working from Home",text:`Since 2020, many companies have allowed employees to work from home for part of the week. Supporters say this saves time and money because workers do not need to travel to the office. Some studies have found that people working from home are just as productive as those in the office. However, critics argue that remote work can make teamwork more difficult and may leave some employees feeling lonely. As a result, many firms now use a hybrid model, where staff spend some days at home and others in the office. Managers say the main challenge is making sure that everyone stays connected and informed.`,qs:[
+  {t:"tfng",q:"Working from home is more expensive for employees.",a:"F"},
+  {t:"tfng",q:"Some research suggests home workers can be as productive as office workers.",a:"T"},
+  {t:"tfng",q:"The hybrid model was first used by technology companies.",a:"NG"},
+  {t:"mc",q:"In a hybrid model, staff…",o:["always work at home","split their time between home and the office","work only in the office"],a:1},
+  {t:"gap",q:"Managers want everyone to stay connected and ___.",a:["informed"]}]},
+ W:{type:"letter",prompt:"You recently bought a product online, but it arrived damaged. Write a letter to the company. In your letter:\n• explain what you bought\n• describe the problem\n• say what you would like them to do"},
+ S:{p1:P1("Do you like reading?","How often do you use the internet?","Do you prefer mornings or evenings? Why?"),p2:"Describe a useful skill you have learned.\nYou should say:\n• what it is\n• when and how you learned it\n• how often you use it\nand explain why it is useful."}
+},
+{ // 3
+ L:{title:"Joining an English course",script:`A: Hello, I'd like to join the evening English course.
+B: Sure. We have classes on Monday and Wednesday, from 7 to 9 pm.
+A: How long is the course?
+B: It's ten weeks long, and the total fee is 1,800 dirhams.
+A: Can I pay in installments?
+B: Yes, you can pay in three installments.
+A: When does it start?
+B: The next course starts on the 4th of January.
+A: And where are the classes?
+B: In room 12, on the first floor.`,qs:[
+  {t:"mc",q:"Classes are on…",o:["Monday and Wednesday","Tuesday and Thursday","Sunday and Tuesday"],a:0},
+  {t:"gap",q:"Course length: ___ weeks",a:["10","ten"]},
+  {t:"gap",q:"Total fee: ___ dirhams",a:["1800","1,800"]},
+  {t:"gap",q:"Start date: ___ January",a:["4","4th","fourth"]},
+  {t:"gap",q:"Room number: ___",a:["12","twelve"]}]},
+ R:{title:"Camels in the Desert",text:`Camels are famous for their ability to survive in the desert. Contrary to popular belief, a camel's hump does not store water; it stores fat, which the animal can use for energy when food is scarce. Camels can lose up to a quarter of their body weight through water loss and still survive, and when water is available, an adult camel can drink around 100 litres in a short time. Their thick eyelashes and their ability to close their nostrils protect them from sand. In the Gulf, camels were once essential for transport, but today they are valued mainly for racing, beauty contests and milk.`,qs:[
+  {t:"tfng",q:"A camel's hump is full of water.",a:"F"},
+  {t:"tfng",q:"Camels are able to close their nostrils.",a:"T"},
+  {t:"tfng",q:"Camel milk is more popular than cow milk in the Gulf.",a:"NG"},
+  {t:"mc",q:"Today, camels in the Gulf are mainly valued for…",o:["transport","racing, contests and milk","farming"],a:1},
+  {t:"gap",q:"The hump stores ___.",a:["fat"]}]},
+ W:{type:"essay",prompt:"In many cities, traffic is becoming a serious problem. What are the main causes of this, and what solutions can you suggest?"},
+ S:{p1:P1("Do you like cooking?","What is your favourite food?","How often do you eat out?"),p2:"Describe a memorable trip you have taken.\nYou should say:\n• where you went\n• who you went with\n• what you did\nand explain why it was memorable."}
+},
+{ // 4
+ L:{title:"Airport announcement",script:`Attention passengers on flight GA 362 to Bangkok. Due to bad weather, this flight has been delayed by two hours. The new departure time is 11:45. Boarding will now take place at gate B14, not gate A6. Passengers can collect a free meal voucher from the information desk near gate B10. We apologise for any inconvenience.`,qs:[
+  {t:"gap",q:"Destination: ___",a:["bangkok"]},
+  {t:"gap",q:"Delay: ___ hours",a:["2","two"]},
+  {t:"gap",q:"New departure time: ___",a:["11:45","11.45","1145"]},
+  {t:"mc",q:"Boarding gate:",o:["A6","B10","B14"],a:2},
+  {t:"mc",q:"Passengers can get…",o:["a free meal voucher","a hotel room","a refund"],a:0}]},
+ R:{title:"The Benefits of Sleep",text:`Scientists agree that sleep is essential for good health. Adults are generally advised to get between seven and nine hours of sleep each night. During sleep, the brain processes information from the day, which helps us to remember what we have learned. A lack of sleep has been linked to problems such as weight gain, poor concentration and a weaker immune system. Experts recommend going to bed at the same time each night and avoiding screens for at least an hour before sleeping, because the light from phones can make it harder to fall asleep.`,qs:[
+  {t:"tfng",q:"Adults should sleep at least ten hours a night.",a:"F"},
+  {t:"tfng",q:"Sleep helps us remember what we have learned.",a:"T"},
+  {t:"tfng",q:"Teenagers need more sleep than adults.",a:"NG"},
+  {t:"mc",q:"Experts advise avoiding screens before bed because…",o:["the light makes it harder to sleep","phones are expensive","screens cause weight gain"],a:0},
+  {t:"gap",q:"Lack of sleep can weaken the ___ system.",a:["immune"]}]},
+ W:{type:"letter",prompt:"You want to rent a shop in a building. Write a letter to the building owner. In your letter:\n• explain what kind of business you plan to open\n• ask about the rent and the contract\n• suggest a time to view the shop"},
+ S:{p1:P1("Do you like sports?","How do you usually relax?","Do you prefer hot or cold weather?"),p2:"Describe a person who has influenced you.\nYou should say:\n• who this person is\n• how you know them\n• what they did\nand explain why they influenced you."}
+},
+{ // 5
+ L:{title:"Ordering gift boxes",script:`A: Hello, Sunrise Packaging. How can I help?
+B: Hi, I'd like to order some gift boxes for dates.
+A: Of course. Which size?
+B: The medium size, one kilo.
+A: How many do you need?
+B: Five hundred boxes.
+A: They're 6 dirhams each, but for orders over 400 we give a 10 percent discount.
+B: Great. When can you deliver?
+A: Delivery takes about one week, so next Tuesday.
+B: And do you print logos?
+A: Yes, logo printing costs an extra 300 dirhams.`,qs:[
+  {t:"mc",q:"Box size:",o:["small","medium","large"],a:1},
+  {t:"gap",q:"Quantity: ___ boxes",a:["500","five hundred"]},
+  {t:"gap",q:"Price per box: ___ dirhams",a:["6","six"]},
+  {t:"gap",q:"Discount: ___ percent",a:["10","ten"]},
+  {t:"gap",q:"Delivery day: ___",a:["tuesday","next tuesday"]}]},
+ R:{title:"Online Shopping",text:`Online shopping has grown rapidly over the past decade. Customers enjoy being able to compare prices easily and have products delivered to their door. For businesses, selling online can reduce the cost of renting a physical shop. However, online stores face strong competition, and returns can be expensive, especially for clothing, where customers often order several sizes and send back the ones that do not fit. To build trust, successful online sellers usually offer clear photos, honest descriptions and fast customer service. Social media has also become an important tool for attracting new customers.`,qs:[
+  {t:"tfng",q:"Selling online can save businesses money on shop rent.",a:"T"},
+  {t:"tfng",q:"Clothing is rarely returned.",a:"F"},
+  {t:"tfng",q:"Most online shoppers are under 30.",a:"NG"},
+  {t:"mc",q:"Successful sellers build trust through…",o:["low prices only","clear photos and good service","free gifts"],a:1},
+  {t:"gap",q:"___ media helps attract new customers.",a:["social"]}]},
+ W:{type:"essay",prompt:"Some people think young people should be taught how to manage money at school. To what extent do you agree or disagree?"},
+ S:{p1:P1("Do you like shopping?","Do you prefer shopping online or in stores?","What was the last thing you bought?"),p2:"Describe a business you would like to start.\nYou should say:\n• what it is\n• where it would be\n• who your customers would be\nand explain why you would like to start it."}
+},
+{ // 6
+ L:{title:"Museum tour",script:`Welcome to the Heritage Museum. The tour today will take about 90 minutes. We'll start in the main hall, where you can see traditional boats and fishing tools. Then we'll go upstairs to the jewellery room. Please note that photography is allowed, but you must not use flash. At the end of the tour, there's a short film in the cinema room, which lasts 15 minutes. The gift shop closes at 6 pm.`,qs:[
+  {t:"gap",q:"Tour length: about ___ minutes",a:["90","ninety"]},
+  {t:"mc",q:"The tour starts in the…",o:["jewellery room","main hall","cinema room"],a:1},
+  {t:"mc",q:"Photography is…",o:["not allowed","allowed without flash","allowed with flash"],a:1},
+  {t:"gap",q:"The film lasts ___ minutes.",a:["15","fifteen"]},
+  {t:"gap",q:"The gift shop closes at ___ pm.",a:["6","six"]}]},
+ R:{title:"Solar Energy in the Gulf",text:`Countries in the Gulf receive large amounts of sunshine throughout the year, which makes them ideal locations for solar energy. In recent years, several very large solar parks have been built in the region, and the cost of solar electricity has fallen sharply. Solar power produces no emissions while it is generating electricity, which helps countries reduce pollution. One challenge is that panels lose efficiency when they are covered in dust, so they must be cleaned regularly, sometimes by robots. Another is that solar energy is not produced at night, which means it needs to be combined with storage systems such as batteries.`,qs:[
+  {t:"tfng",q:"The cost of solar electricity has increased.",a:"F"},
+  {t:"tfng",q:"Dust makes solar panels less efficient.",a:"T"},
+  {t:"tfng",q:"Most Gulf homes now have their own solar panels.",a:"NG"},
+  {t:"mc",q:"Storage systems are needed because…",o:["panels are expensive","solar power is not produced at night","robots need electricity"],a:1},
+  {t:"gap",q:"Panels are sometimes cleaned by ___.",a:["robots"]}]},
+ W:{type:"letter",prompt:"Your neighbour has been making a lot of noise late at night. Write a letter to your neighbour. In your letter:\n• describe the problem\n• explain how it is affecting you\n• suggest a solution"},
+ S:{p1:P1("Do you use social media?","How has technology changed your daily life?","Do people spend too much time on their phones?"),p2:"Describe a piece of technology you find useful.\nYou should say:\n• what it is\n• when you got it\n• how you use it\nand explain why you find it useful."}
+},
+{ // 7
+ L:{title:"Booking a clinic appointment",script:`A: Good afternoon, Al Noor Clinic.
+B: Hello, I'd like to make an appointment with a dentist.
+A: Is it your first visit?
+B: Yes, it is.
+A: We have an appointment on Thursday at 4:30, or Saturday at 10.
+B: Saturday at 10 is better.
+A: Fine. Please arrive fifteen minutes early to fill in a form, and bring your insurance card.
+B: Where are you located?
+A: We're on the third floor of Marina Tower, opposite the bank.`,qs:[
+  {t:"mc",q:"The caller wants to see…",o:["an eye doctor","a dentist","a family doctor"],a:1},
+  {t:"mc",q:"Appointment chosen:",o:["Thursday at 4:30","Saturday at 10","Sunday at 10"],a:1},
+  {t:"gap",q:"Arrive ___ minutes early.",a:["15","fifteen"]},
+  {t:"gap",q:"Bring your ___ card.",a:["insurance"]},
+  {t:"gap",q:"The clinic is on the ___ floor.",a:["3","3rd","third"]}]},
+ R:{title:"Learning a Second Language",text:`Many people believe that children learn languages more easily than adults. Research suggests that children are often better at developing a native-like accent, but adults can learn grammar and vocabulary faster in the early stages because they can use study strategies. Experts agree that regular practice is more effective than occasional long study sessions; studying for 20 minutes every day is usually better than studying for three hours once a week. Speaking with native speakers, watching films and reading for pleasure can also speed up progress. Above all, motivation plays a key role in success.`,qs:[
+  {t:"tfng",q:"Adults can never learn a second language well.",a:"F"},
+  {t:"tfng",q:"Short daily study is usually better than one long weekly session.",a:"T"},
+  {t:"tfng",q:"Watching films is the best way to learn grammar.",a:"NG"},
+  {t:"mc",q:"Children are often better at…",o:["grammar","accent","vocabulary"],a:1},
+  {t:"gap",q:"___ plays a key role in success.",a:["motivation"]}]},
+ W:{type:"essay",prompt:"Many people now work from home instead of going to an office. Do the advantages of this outweigh the disadvantages?"},
+ S:{p1:P1("Why are you learning English?","What do you find difficult about English?","Have you learned any other languages?"),p2:"Describe a goal you want to achieve in the future.\nYou should say:\n• what the goal is\n• when you decided on it\n• what you need to do to achieve it\nand explain why it is important to you."}
+},
+{ // 8
+ L:{title:"Building management notice",script:`Good evening, residents. This is a reminder from building management. Water will be turned off on Sunday from 9 am to 1 pm for maintenance work on the main tank. Please store some water before then. Also, the parking area will be cleaned on Monday morning, so please move your cars by 7 am. The new gym on the ground floor is now open from 6 am to 11 pm, and it's free for all residents. If you have any questions, contact reception on extension 200.`,qs:[
+  {t:"mc",q:"Water will be turned off on…",o:["Saturday","Sunday","Monday"],a:1},
+  {t:"gap",q:"Water will be off until ___ pm.",a:["1","one"]},
+  {t:"gap",q:"Move your car by ___ am on Monday.",a:["7","seven"]},
+  {t:"mc",q:"The gym is on the…",o:["ground floor","roof","first floor"],a:0},
+  {t:"gap",q:"Reception extension: ___",a:["200"]}]},
+ R:{title:"Water Use in Agriculture",text:`Agriculture uses around 70 percent of the world's fresh water. In dry regions, saving water on farms is therefore a major priority. Traditional flood irrigation, where fields are covered with water, can waste a large amount through evaporation. Drip irrigation, which delivers small amounts of water directly to the roots of plants, can reduce water use significantly. Farmers can also use sensors to measure soil moisture, so they water only when necessary. Although these modern systems are more expensive to install, they often pay for themselves through lower water and energy costs.`,qs:[
+  {t:"tfng",q:"Agriculture uses most of the world's fresh water.",a:"T"},
+  {t:"tfng",q:"Drip irrigation increases water loss.",a:"F"},
+  {t:"tfng",q:"Soil sensors are cheaper than drip systems.",a:"NG"},
+  {t:"mc",q:"Flood irrigation wastes water mainly through…",o:["evaporation","leaking pipes","sensors"],a:0},
+  {t:"gap",q:"Modern systems often ___ for themselves.",a:["pay"]}]},
+ W:{type:"letter",prompt:"You are organising a meeting for a group of business partners. Write a letter to a hotel. In your letter:\n• say how many people will attend and when\n• describe the facilities you need\n• ask about prices"},
+ S:{p1:P1("Do you like your hometown?","What would you change about it?","Is it a good place for young people?"),p2:"Describe an important decision you made.\nYou should say:\n• what the decision was\n• when you made it\n• how you made it\nand explain why it was important."}
+},
+{ // 9
+ L:{title:"Joining a gym",script:`A: Hi, I'm interested in joining the gym.
+B: Welcome! We have two plans. The basic plan is 200 dirhams a month, and the premium plan is 350, which includes the swimming pool.
+A: I'll take the premium plan. Is there a joining fee?
+B: Normally it's 100 dirhams, but this month it's free.
+A: What are your opening hours?
+B: We're open 24 hours, seven days a week.
+A: Do you offer personal training?
+B: Yes, sessions are 150 dirhams each, and your first one is free.`,qs:[
+  {t:"gap",q:"Basic plan: ___ dirhams a month",a:["200"]},
+  {t:"mc",q:"The premium plan includes…",o:["the swimming pool","a sauna","free meals"],a:0},
+  {t:"mc",q:"Joining fee this month:",o:["100 dirhams","50 dirhams","free"],a:2},
+  {t:"gap",q:"Open ___ hours a day.",a:["24","twenty-four","twenty four"]},
+  {t:"gap",q:"Personal training: ___ dirhams per session",a:["150"]}]},
+ R:{title:"The History of Coffee",text:`Coffee is believed to have originated in Ethiopia, and by the 15th century it was being grown in Yemen. From there, it spread across the Arab world, where coffee houses became popular places for conversation, music and the exchange of news. In the 17th century, coffee reached Europe, and coffee houses opened in cities such as London and Venice. Today, coffee is one of the most traded agricultural products in the world. In Gulf countries, Arabic coffee, often flavoured with cardamom and served with dates, remains an important symbol of hospitality.`,qs:[
+  {t:"tfng",q:"Coffee was being grown in Yemen by the 15th century.",a:"T"},
+  {t:"tfng",q:"Coffee reached Europe before the Arab world.",a:"F"},
+  {t:"tfng",q:"London had more coffee houses than Venice.",a:"NG"},
+  {t:"mc",q:"Arabic coffee is often flavoured with…",o:["cinnamon","cardamom","sugar"],a:1},
+  {t:"gap",q:"Arabic coffee is a symbol of ___.",a:["hospitality"]}]},
+ W:{type:"essay",prompt:"Tourism brings many benefits to a country, but it can also cause problems. Discuss the advantages and disadvantages of tourism."},
+ S:{p1:P1("Do you like travelling?","Where did you go on your last holiday?","Do you prefer travelling alone or with others?"),p2:"Describe a city you would like to visit.\nYou should say:\n• which city it is\n• what you know about it\n• what you would do there\nand explain why you want to visit it."}
+},
+{ // 10
+ L:{title:"International Trade Fair",script:`Welcome to the International Trade Fair. This year, more than 2,000 companies are taking part. The fair runs for five days. Electronics are in Hall A, home products are in Hall B, and textiles and clothing are in Hall C. Free shuttle buses run between the halls every ten minutes. Visitors must wear their badge at all times. Translation services are available at the information centre near the main entrance, for a fee of 50 dollars per hour.`,qs:[
+  {t:"gap",q:"Number of companies: more than ___",a:["2000","2,000","two thousand"]},
+  {t:"gap",q:"The fair lasts ___ days.",a:["5","five"]},
+  {t:"mc",q:"Textiles and clothing are in…",o:["Hall A","Hall B","Hall C"],a:2},
+  {t:"gap",q:"Buses run every ___ minutes.",a:["10","ten"]},
+  {t:"gap",q:"Translation costs ___ dollars per hour.",a:["50","fifty"]}]},
+ R:{title:"Negotiation Skills",text:`Negotiation is an important skill in both business and everyday life. Good negotiators prepare carefully before a meeting: they research the market price and decide in advance the lowest offer they will accept. During the negotiation, listening is often more valuable than talking, because it helps you understand what the other side really needs. Experts advise against accepting the first offer, but they also warn that being too aggressive can damage long-term relationships. The best agreements are usually those in which both sides feel they have gained something.`,qs:[
+  {t:"tfng",q:"Good negotiators decide their lowest acceptable offer before the meeting.",a:"T"},
+  {t:"tfng",q:"Experts recommend accepting the first offer quickly.",a:"F"},
+  {t:"tfng",q:"Negotiation courses are usually expensive.",a:"NG"},
+  {t:"mc",q:"Listening is valuable because it helps you…",o:["talk less","understand what the other side needs","finish the meeting quickly"],a:1},
+  {t:"gap",q:"Being too aggressive can damage long-term ___.",a:["relationships"]}]},
+ W:{type:"essay",prompt:"Some people say that success in business depends mainly on hard work, while others believe luck is more important. Discuss both views and give your own opinion."},
+ S:{p1:P1("What do you do?","What do you enjoy most about your work?","Would you like to change jobs in the future?"),p2:"Describe a challenge you faced at work or in your studies.\nYou should say:\n• what the challenge was\n• when it happened\n• what you did\nand explain how you felt afterwards."}
+}
+].map((t,k)=>({...t,id:"t"+(k+1),n:k+1,day:(k+1)*3}));
+const ieltsTest = d=>ITESTS.find(t=>t.day===d);
+const W_GUIDE={
+ letter:{min:150,mins:20,label:"Writing Task 1 — رسالة (General Training)",tips:["Dear Sir or Madam, / Dear Mr. …,","I am writing to … (سبب الرسالة)","I would be grateful if you could …","I look forward to hearing from you.","Yours faithfully, (إذا ما تعرف الاسم) / Yours sincerely,"],plan:"فقرة لكل نقطة من النقاط الثلاث + بداية ونهاية رسمية."},
+ essay:{min:250,mins:40,label:"Writing Task 2 — مقال",tips:["In recent years, … / It is often argued that …","On the one hand, … On the other hand, …","For example, … / For instance, …","In my opinion, … / I strongly believe that …","In conclusion, …"],plan:"مقدمة (إعادة صياغة السؤال + رأيك) ← فقرتين أو ثلاث بأمثلة ← خاتمة."}
+};
+const W_CHECK=["جاوبت على كل أجزاء السؤال","كل فكرة في فقرة واضحة مع أدوات ربط","استخدمت كلمات متنوعة بدون تكرار","الأخطاء القواعدية قليلة","الجمل متنوعة (بسيطة ومركبة)"];
+const S_CHECK=["تكلمت بدون توقف طويل","وسّعت إجاباتي بأسباب وأمثلة","استخدمت كلمات متنوعة","النطق كان واضح"];
+
+const pctBand=p=>p>=95?8.5:p>=90?8:p>=85?7.5:p>=78?7:p>=70?6.5:p>=60?6:p>=50?5.5:p>=40?5:p>=30?4.5:p>=20?4:3.5;
+const roundBand=x=>Math.round(x*2)/2;
+const normAns=s=>String(s||"").toLowerCase().replace(/^the\s+/,"").replace(/\s+/g," ").trim();
+
+let T=null; // حالة الاختبار الحالي
+function startTest(id,onDone){
+  const t=ITESTS.find(x=>x.id===id);
+  T={t,sec:"intro",onDone,L:{},R:{},plays:0,w:"",wCheck:[],sAns:{},sCheck:[]};
+  testView();
+}
+function testHead(label,i){
+  const secs=["Listening","Reading","Writing","Speaking"];
+  return `<div class="row" style="justify-content:space-between;margin-bottom:6px"><button class="btn ghost" id="tback">→ خروج</button><span class="pill">IELTS ${T.t.n} — ${label}</span></div>
+  <div class="steps">${secs.map((s,k)=>`<span class="${k<i?"done":k===i?"cur":""}">${s}</span>`).join("")}</div>`;
+}
+function bindTBack(){$("#tback").onclick=()=>{if(confirm("تبغى تطلع من الاختبار؟ ما راح تنحفظ إجاباتك.")){speechSynthesis.cancel();if(rec)rec.stop();T=null;if(typeof D!=="undefined"&&D)dayStep();else render()}}}
+function qHTML(q,i,pre){
+  if(q.t==="gap")return `<div class="tq"><span class="qn">${i+1}</span><div class="t en">${q.q.replace("___",`<input class="gap" data-q="${pre}${i}" autocomplete="off" autocapitalize="off">`)}</div></div>`;
+  const opts=q.t==="tfng"?["TRUE","FALSE","NOT GIVEN"]:q.o;
+  return `<div class="tq"><span class="qn">${i+1}</span><div class="t"><div class="en">${q.q}</div><div class="chs">${opts.map((o,j)=>`<button class="ch en" data-q="${pre}${i}" data-v="${j}">${o}</button>`).join("")}</div></div></div>`;
+}
+function bindChoices(){document.querySelectorAll(".ch").forEach(b=>b.onclick=()=>{document.querySelectorAll(`.ch[data-q="${b.dataset.q}"]`).forEach(x=>x.classList.remove("sel"));b.classList.add("sel")})}
+function gradeQs(qs,pre){
+  let ok=0;
+  qs.forEach((q,i)=>{
+    const key=pre+i; let right, shown;
+    if(q.t==="gap"){
+      const inp=document.querySelector(`.gap[data-q="${key}"]`);
+      right=q.a.includes(normAns(inp.value)); inp.disabled=true;
+      inp.classList.add(right?"right":"wrong"); shown=q.a[0];
+      if(!right)inp.insertAdjacentHTML("afterend",` <span class="w-ok">(${shown})</span>`);
+    }else{
+      const correct=q.t==="tfng"?["T","F","NG"].indexOf(q.a):q.a;
+      const sel=document.querySelector(`.ch.sel[data-q="${key}"]`);
+      right=sel&&+sel.dataset.v===correct;
+      document.querySelectorAll(`.ch[data-q="${key}"]`).forEach(x=>{x.disabled=true;if(+x.dataset.v===correct)x.classList.add("right")});
+      if(sel&&!right)sel.classList.add("wrong");
+    }
+    if(right)ok++;
+  });
+  return ok;
+}
+function playScript(text){
+  if(!("speechSynthesis" in window)){toast("المتصفح ما يدعم تشغيل الصوت");return}
+  speechSynthesis.cancel();
+  const vs=speechSynthesis.getVoices().filter(v=>/^en/.test(v.lang));
+  const v1=voice||vs[0], v2=vs.find(v=>v!==v1&&/en-(GB|AU)/.test(v.lang))||vs.find(v=>v!==v1)||v1;
+  text.split("\n").forEach(line=>{
+    const m=line.match(/^([AB]):\s*(.*)$/);
+    const u=new SpeechSynthesisUtterance(m?m[2]:line);
+    u.lang="en-US"; u.rate=0.92;
+    if(m&&m[1]==="B"){if(v2)u.voice=v2;u.pitch=1.15}else{if(v1)u.voice=v1;u.pitch=0.95}
+    speechSynthesis.speak(u);
+  });
+}
+function testView(){
+  scrollTo(0,0);
+  const t=T.t;
+  if(T.sec==="intro"){
+    $("#app").innerHTML=`<div class="card" style="text-align:center">
+      <div style="font-size:44px">🎓</div><h2>اختبار IELTS المصغّر رقم ${t.n}</h2>
+      <p class="mute">مقتبس من نمط امتحان IELTS بأقسامه الأربعة، بحجم أصغر:</p>
+      <div class="exbox" style="text-align:start">🎧 <b>Listening</b> — 5 أسئلة (تقدر تسمع مرتين)<br>📖 <b>Reading</b> — قطعة + 5 أسئلة (True/False/Not Given)<br>✍️ <b>Writing</b> — ${W_GUIDE[t.W.type].label.split("—")[1]}<br>🎤 <b>Speaking</b> — Part 1 + Part 2</div>
+      <p class="mute">الوقت المتوقع: 30–45 دقيقة. النتيجة تقدير تقريبي للـ Band.</p>
+      <button class="btn" id="go" style="width:100%">ابدأ الاختبار</button>
+      ${T.onDone?`<button class="btn ghost" id="skip" style="width:100%;margin-top:8px">أسويه بعدين (يبقى في تبويب IELTS)</button>`:`<button class="btn ghost" id="tb2" style="width:100%;margin-top:8px">رجوع</button>`}
+    </div>`;
+    $("#go").onclick=()=>{T.sec="L";testView()};
+    if(T.onDone)$("#skip").onclick=()=>{const f=T.onDone;T=null;f()};
+    else $("#tb2").onclick=()=>{T=null;render()};
+    return;
+  }
+  if(T.sec==="L"){
+    $("#app").innerHTML=testHead("Listening",0)+`<div class="card">
+      <h3>🎧 ${t.L.title}</h3>
+      <p class="mute">اقرأ الأسئلة أول، بعدين اضغط تشغيل وجاوب وأنت تسمع. (في الامتحان الحقيقي تسمع مرة وحدة)</p>
+      <div class="row"><button class="btn" id="play">▶️ تشغيل (${2-T.plays} متبقي)</button><button class="btn ghost" id="stop">⏹</button></div>
+    </div>
+    <div class="card">${t.L.qs.map((q,i)=>qHTML(q,i,"L")).join("")}</div>
+    <div id="lres"></div>
+    <button class="btn" id="sub" style="width:100%">سلّم إجابات الاستماع</button>`;
+    bindTBack(); bindChoices();
+    const pb=$("#play");
+    if(T.plays>=2)pb.disabled=true;
+    pb.onclick=()=>{if(T.plays>=2)return;T.plays++;pb.textContent=`▶️ تشغيل (${2-T.plays} متبقي)`;if(T.plays>=2)pb.disabled=true;playScript(t.L.script)};
+    $("#stop").onclick=()=>speechSynthesis.cancel();
+    $("#sub").onclick=()=>{
+      speechSynthesis.cancel();
+      T.L.ok=gradeQs(t.L.qs,"L");
+      $("#lres").innerHTML=`<div class="card"><h3>نتيجتك: ${T.L.ok} / 5</h3><details><summary>عرض نص المحادثة</summary><p class="en" style="white-space:pre-line">${esc(t.L.script)}</p></details></div>`;
+      const b=$("#sub"); b.textContent="التالي: Reading"; b.onclick=()=>{T.sec="R";testView()};
+    };
+    return;
+  }
+  if(T.sec==="R"){
+    $("#app").innerHTML=testHead("Reading",1)+`<div class="card">
+      <h3 class="en">📖 ${t.R.title}</h3><p class="en passage">${t.R.text}</p></div>
+    <div class="card"><p class="mute"><b>TRUE</b> = النص يقول نفس المعلومة · <b>FALSE</b> = النص يقول عكسها · <b>NOT GIVEN</b> = النص ما ذكرها</p>${t.R.qs.map((q,i)=>qHTML(q,i,"R")).join("")}</div>
+    <div id="rres"></div>
+    <button class="btn" id="sub" style="width:100%">سلّم إجابات القراءة</button>`;
+    bindTBack(); bindChoices();
+    $("#sub").onclick=()=>{
+      T.R.ok=gradeQs(t.R.qs,"R");
+      $("#rres").innerHTML=`<div class="card"><h3>نتيجتك: ${T.R.ok} / 5</h3></div>`;
+      const b=$("#sub"); b.textContent="التالي: Writing"; b.onclick=()=>{T.sec="W";testView()};
+    };
+    return;
+  }
+  if(T.sec==="W"){
+    const g=W_GUIDE[t.W.type];
+    T.wStart=T.wStart||Date.now();
+    $("#app").innerHTML=testHead("Writing",2)+`<div class="card">
+      <h3>✍️ ${g.label}</h3>
+      <div class="exbox en" style="white-space:pre-line">${t.W.prompt}</div>
+      <p class="mute">اكتب ${g.min} كلمة على الأقل · الوقت المقترح ${g.mins} دقيقة · <span id="wt"></span></p>
+      <details><summary>💡 عبارات تساعدك</summary><p class="mute">${g.plan}</p><ul class="en">${g.tips.map(x=>`<li>${x}</li>`).join("")}</ul></details>
+      <textarea id="wtext" class="en" dir="ltr" placeholder="Start writing here…">${esc(T.w)}</textarea>
+      <div class="row" style="justify-content:space-between"><span class="mute" id="wc">0 كلمة</span></div>
+    </div>
+    <button class="btn" id="sub" style="width:100%">انتهيت من الكتابة</button>`;
+    bindTBack();
+    const ta=$("#wtext"), wc=$("#wc");
+    const count=()=>{T.w=ta.value;const n=ta.value.trim().split(/\s+/).filter(Boolean).length;wc.textContent=`${n} كلمة`;wc.style.color=n>=g.min?"var(--ok)":"";return n};
+    ta.oninput=count; count();
+    const tick=()=>{const el=$("#wt");if(!el||T?.sec!=="W")return;const left=g.mins*60-Math.floor((Date.now()-T.wStart)/1000);el.textContent=left>0?`متبقي ${Math.floor(left/60)}:${String(left%60).padStart(2,"0")}`:"⏰ خلص الوقت المقترح";setTimeout(tick,1000)};tick();
+    $("#sub").onclick=()=>{T.wWords=count();T.sec="W2";testView()};
+    return;
+  }
+  if(T.sec==="W2"){
+    const g=W_GUIDE[t.W.type];
+    $("#app").innerHTML=testHead("Writing",2)+`<div class="card">
+      <h3>قيّم كتابتك بصدق</h3>
+      <p class="mute">كتبت ${T.wWords} كلمة ${T.wWords>=g.min?"✅":`(أقل من ${g.min} — في الامتحان الحقيقي يخصمون عليها)`}</p>
+      ${aiReady()?`<div id="wai"><button class="btn ok" id="wAiBtn" style="width:100%">🤖 صحح كتابتي تصحيح IELTS احترافي</button></div><p class="mute" id="wselfL" style="margin-top:12px">أو قيّم نفسك:</p>`:""}
+      <div id="wself">${W_CHECK.map((c,i)=>`<label class="chk"><input type="checkbox" data-i="${i}"> ${c}</label>`).join("")}</div>
+    </div>
+    <button class="btn" id="sub" style="width:100%">التالي: Speaking</button>`;
+    bindTBack();
+    if(T.wAI){$("#wai").innerHTML=aiGradeHTML(T.wAI,[["tr",t.W.type==="letter"?"TA":"TR"],["cc","CC"],["lr","LR"],["gra","GRA"]]);$("#wself").hidden=true;$("#wselfL").hidden=true}
+    const wb=$("#wAiBtn"); if(wb)wb.onclick=async()=>{
+      wb.disabled=true; wb.textContent="⏳ المصحح يقرأ كتابتك…";
+      try{T.wAI=pj(await ai(W_SYS(t.W.type),[{role:"user",content:`TASK:\n${t.W.prompt}\n\nCANDIDATE'S ANSWER (${T.wWords} words):\n${T.w}`}],1600));testView()}
+      catch(e){wb.disabled=false;wb.textContent="🤖 صحح كتابتي تصحيح IELTS احترافي";toast(aiErr(e))}
+    };
+    $("#sub").onclick=()=>{T.wCheck=[...document.querySelectorAll(".chk input")].filter(x=>x.checked).length;T.sec="S";T.sq=0;testView()};
+    return;
+  }
+  if(T.sec==="S"){
+    const qs=[...t.S.p1.map(q=>({part:1,q})),{part:2,q:t.S.p2}];
+    if(T.sq>=qs.length){T.sec="S2";testView();return}
+    const cur=qs[T.sq], isP2=cur.part===2;
+    $("#app").innerHTML=testHead("Speaking",3)+`<div class="card" style="text-align:center">
+      <span class="badge">Part ${cur.part} — ${isP2?"Cue card":`سؤال ${T.sq+1} من 3`}</span>
+      <h2 class="en" style="white-space:pre-line;text-align:${isP2?"left":"center"};font-size:${isP2?"17px":"22px"};margin-top:10px">${cur.q}</h2>
+      ${isP2?`<p class="mute">عندك دقيقة تحضّر (تقدر تكتب نقاط على ورقة)، بعدين تكلم 1–2 دقيقة.</p><p id="prep" class="pill" style="display:inline-block"></p>`:`<div class="row" style="justify-content:center">${sayBtn(cur.q)}</div><p class="mute">جاوب بجملتين إلى أربع جمل، ووضّح السبب.</p>`}
+      <div style="margin:16px 0 6px"><button class="mic" id="smic">🎤</button></div>
+      <p class="mute" id="shint">${SR?"اضغط المايك وجاوب، واضغط مرة ثانية لما تخلص":"متصفحك ما يدعم المايك — جاوب بصوت عالي وكمّل"}</p>
+      <div id="strans" class="en" style="text-align:left"></div>
+    </div>
+    <button class="btn" id="sub" style="width:100%">${T.sq<qs.length-1?"السؤال التالي":"إنهاء المحادثة"}</button>`;
+    bindTBack();
+    if(isP2){let s=60;const pe=$("#prep");const tk=()=>{if(!$("#prep")||T?.sec!=="S")return;pe.textContent=s>0?`وقت التحضير: ${s} ثانية`:"ابدأ الكلام الحين 🎤";if(s-->0)setTimeout(tk,1000)};tk()}
+    $("#smic").onclick=()=>speakAnswer(T.sq);
+    $("#sub").onclick=()=>{if(rec)rec.stop();T.sq++;testView()};
+    return;
+  }
+  if(T.sec==="S2"){
+    const ans=Object.values(T.sAns), words=ans.reduce((a,x)=>a+x.words,0);
+    $("#app").innerHTML=testHead("Speaking",3)+`<div class="card">
+      <h3>قيّم محادثتك</h3>
+      ${ans.length?`<p class="mute">تكلمت ${words} كلمة في ${ans.length} إجابات${T.sAns[3]?` · Part 2: ${T.sAns[3].words} كلمة في ${Math.round(T.sAns[3].secs)} ثانية`:""}</p>`:""}
+      ${aiReady()&&ans.length?`<div id="sai"><button class="btn ok" id="sAiBtn" style="width:100%">🤖 قيّم كلامي تقييم IELTS احترافي</button></div><p class="mute" id="sselfL" style="margin-top:12px">أو قيّم نفسك:</p>`:""}
+      <div id="sself">${S_CHECK.map((c,i)=>`<label class="chk"><input type="checkbox" data-i="${i}"> ${c}</label>`).join("")}</div>
+    </div>
+    <button class="btn" id="sub" style="width:100%">عرض النتيجة</button>`;
+    bindTBack();
+    if(T.sAI){$("#sai").innerHTML=aiGradeHTML(T.sAI,[["fc","FC"],["lr","LR"],["gra","GRA"]]);$("#sself").hidden=true;$("#sselfL").hidden=true}
+    const sb=$("#sAiBtn"); if(sb)sb.onclick=async()=>{
+      sb.disabled=true; sb.textContent="⏳ الممتحن يقيّم إجاباتك…";
+      const qs=[...t.S.p1,t.S.p2];
+      const tr=qs.map((q,i)=>`Q${i+1} (${i<3?"Part 1":"Part 2"}): ${q.replace(/\n/g," ")}\nANSWER: ${T.sAns[i]?.text||"(no answer)"}`).join("\n\n");
+      try{T.sAI=pj(await ai(S_SYS,[{role:"user",content:tr}],1200));testView()}
+      catch(e){sb.disabled=false;sb.textContent="🤖 قيّم كلامي تقييم IELTS احترافي";toast(aiErr(e))}
+    };
+    $("#sub").onclick=()=>{T.sCheck=[...document.querySelectorAll(".chk input")].filter(x=>x.checked).length;T.sec="RES";testView()};
+    return;
+  }
+  if(T.sec==="RES"){
+    const g=W_GUIDE[t.W.type];
+    const lB=pctBand(T.L.ok/5*100), rB=pctBand(T.R.ok/5*100);
+    let wB=4.5+T.wCheck*0.5; if(T.wWords<g.min)wB-=0.5; if(T.wWords<g.min/2)wB=Math.min(wB,4); wB=Math.max(3.5,Math.min(7.5,wB));
+    const ans=Object.values(T.sAns), avgP1=[0,1,2].map(i=>T.sAns[i]?.words||0).reduce((a,b)=>a+b,0)/3, p2=T.sAns[3]?.words||0;
+    let sB=4.5+T.sCheck*0.5+(SR&&ans.length?((avgP1>=20?0.5:0)+(p2>=100?0.5:0)-(p2<40?0.5:0)):0); sB=Math.max(3.5,Math.min(7.5,sB));
+    if(T.wAI?.band)wB=+T.wAI.band; if(T.sAI?.band)sB=+T.sAI.band;
+    const overall=roundBand((lB+rB+wB+sB)/4);
+    const prev=S.ielts?.[t.id];
+    S.ielts=S.ielts||{}; S.ielts[t.id]={l:lB,r:rB,w:wB,s:sB,band:overall,best:Math.max(overall,prev?.best||0),date:today()};
+    S.ieltsWriting=S.ieltsWriting||{}; S.ieltsWriting[t.id]=T.w;
+    const firstTime=!prev; addXP(firstTime?40:10);
+    $("#app").innerHTML=`<div class="card" style="text-align:center">
+      <p class="mute">اختبار IELTS رقم ${t.n} — تقدير تقريبي</p>
+      <div class="band">${overall.toFixed(1)}</div><p><b>Overall Band</b></p>
+      <div class="grid4">
+        <div><b>${lB.toFixed(1)}</b><span>Listening</span></div><div><b>${rB.toFixed(1)}</b><span>Reading</span></div>
+        <div><b>${wB.toFixed(1)}</b><span>Writing</span></div><div><b>${sB.toFixed(1)}</b><span>Speaking</span></div>
+      </div>
+      ${prev?`<p class="mute">نتيجتك السابقة: ${prev.band.toFixed(1)}</p>`:""}
+      <p class="mute" style="font-size:13px">Listening و Reading محسوبة من إجاباتك، و Writing و Speaking ${T.wAI||T.sAI?"مصححة بالذكاء الاصطناعي حسب معايير IELTS":"من تقييمك الذاتي"}. الامتحان الحقيقي أطول (40 سؤال لكل قسم)، فاعتبرها مؤشر لمستواك مو درجة رسمية.</p>
+      <button class="btn" id="fin" style="width:100%">${T.onDone?"متابعة":"رجوع"}</button>
+    </div>`;
+    $("#fin").onclick=()=>{const f=T.onDone;T=null;if(f)f();else render()};
+  }
+}
+function speakAnswer(idx){
+  if(!SR){toast("المايك غير مدعوم في هذا المتصفح");return}
+  if(rec){rec.stop();return}
+  speechSynthesis.cancel();
+  const t0=Date.now(); let finalTxt="";
+  rec=new SR(); rec.lang="en-US"; rec.continuous=true; rec.interimResults=true;
+  $("#smic").classList.add("rec"); $("#shint").textContent="أسمعك… اضغط مرة ثانية لما تخلص";
+  rec.onresult=e=>{
+    let interim=""; finalTxt="";
+    for(const r of e.results){ if(r.isFinal)finalTxt+=r[0].transcript+" "; else interim+=r[0].transcript; }
+    const el=$("#strans"); if(el)el.innerHTML=`${esc(finalTxt)}<span class="mute">${esc(interim)}</span>`;
+  };
+  rec.onerror=e=>{if(e.error==="not-allowed")toast("اسمح للموقع باستخدام المايك")};
+  rec.onend=()=>{
+    rec=null;
+    const words=finalTxt.trim().split(/\s+/).filter(Boolean).length, secs=(Date.now()-t0)/1000;
+    if(T&&words){const old=T.sAns[idx];T.sAns[idx]={text:((old?.text||"")+" "+finalTxt).trim(),words:(old?.words||0)+words,secs:(old?.secs||0)+secs}}
+    const m=$("#smic"); if(m){m.classList.remove("rec");$("#shint").textContent=words?`✅ سجلت ${T.sAns[idx].words} كلمة — تقدر تكمل أو تروح للسؤال التالي`:"ما سمعت شي، جرّب مرة ثانية"}
+  };
+  rec.start();
+}
+function IeltsTab(){
+  const od=openDay();
+  $("#app").innerHTML=`<div class="card"><h2>🎓 اختبارات IELTS</h2><p class="mute">اختبار مصغّر كل 3 أيام بنفس أقسام الامتحان الحقيقي. تقدر تعيد أي اختبار مفتوح.</p></div>
+  <div class="card">${ITESTS.map(t=>{const r=S.ielts?.[t.id],open=t.day<=od;return`
+    <div class="item${open?"":" locked"}" ${open?`data-t="${t.id}"`:""}><div class="t">${open?"":"🔒 "}اختبار ${t.n}<div class="mute en">${t.L.title} · ${t.R.title}</div></div>
+    <span class="badge ${r?"done":""}">${!open?`يفتح يوم ${t.day}`:r?`Band ${r.best.toFixed(1)}`:"جاهز"}</span></div>`}).join("")}</div>
+  ${S.ielts&&Object.keys(S.ielts).length>1?`<div class="card"><h3>تطورك</h3><div class="row">${ITESTS.filter(t=>S.ielts[t.id]).map(t=>`<span class="pill">${t.n}: ${S.ielts[t.id].band.toFixed(1)}</span>`).join("")}</div></div>`:""}`;
+  document.querySelectorAll("[data-t]").forEach(it=>it.onclick=()=>startTest(it.dataset.t));
+}
+
+/* ====== الإملاء: يمليك الكلمة وأنت تكتبها، والغلط يرجع لك على فترات ====== */
+const SPELL_GAPS=[1,2,4,7]; // أيام بين كل مراجعة لكلمة غلطت فيها
+const spellDue=()=>Object.entries(S.spell||{}).filter(([,s])=>s.due<=Date.now()).map(([id])=>VOCAB.find(v=>v.id===id)).filter(Boolean);
+const spellAll=()=>Object.keys(S.spell||{}).map(id=>VOCAB.find(v=>v.id===id)).filter(Boolean);
+function markSpell(v,ok){
+  S.spell=S.spell||{};
+  const s=S.spell[v.id];
+  if(!ok){ S.spell[v.id]={box:0,due:Date.now()+SPELL_GAPS[0]*864e5-36e5,miss:(s?.miss||0)+1}; }
+  else if(s){
+    s.box++;
+    if(s.box>=SPELL_GAPS.length){ delete S.spell[v.id]; S.spellMastered=(S.spellMastered||0)+1; toast(`🏅 أتقنت كتابة ${v.en}`); }
+    else s.due=Date.now()+SPELL_GAPS[s.box]*864e5-36e5;
+  }
+  save();
+}
+const normSpell=s=>String(s||"").toLowerCase().replace(/[’']/g,"'").replace(/\s+/g," ").trim();
+function diffHTML(typed,correct){
+  const t=normSpell(typed), c=correct.toLowerCase();
+  let out="";
+  for(let i=0;i<c.length;i++){const ch=c[i]===" "?"&nbsp;":esc(c[i]);out+=t[i]===c[i]?`<span class="lt-ok">${ch}</span>`:`<span class="lt-bad">${ch}</span>`}
+  return out;
+}
+function dictation({list,el="#app",head=()=>"",after=()=>{},onDone,title="إملاء"}){
+  let q=shuffle(list).map(v=>({v,retry:false})), i=0, firstOk=0, firstTotal=q.length;
+  const missed=new Set();
+  const show=()=>{
+    if(i>=q.length)return summary();
+    const {v,retry}=q[i];
+    $(el).innerHTML=head(`${title} — ${Math.min(i+1,firstTotal)}${i>=firstTotal?"+":""} من ${firstTotal}`)+`
+      <div class="card" style="text-align:center">
+        ${retry?`<span class="badge" style="background:var(--bad2);color:var(--bad)">محاولة ثانية</span>`:`<span class="badge">${v.c==="b"?"أعمال":"عامة"}</span>`}
+        <p class="mute" style="margin:10px 0 4px">اسمع واكتب الكلمة</p>
+        <div class="row" style="justify-content:center;gap:12px">
+          <button class="say big" data-say="${esc(v.en)}">🔊</button>
+          <button class="say big" data-say="${esc(v.en)}" data-slow="1">🐢</button>
+          <button class="say big" data-say="${esc(v.ex)}" title="اسمعها في جملة">💬</button>
+        </div>
+        <p style="margin:12px 0 4px">المعنى: <b>${v.ar}</b></p>
+        <p class="mute" id="hintL" style="min-height:24px"></p>
+        <input id="spIn" class="spin en" dir="ltr" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="type here…">
+        <div id="spFb"></div>
+        <div class="grid" style="margin-top:12px"><button class="btn ghost" id="spHint">💡 تلميح</button><button class="btn" id="spGo">تحقق</button></div>
+      </div>`;
+    after();
+    setTimeout(()=>speak(v.en,0.85),250);
+    const inp=$("#spIn"); setTimeout(()=>inp.focus(),300);
+    let hintLvl=0;
+    $("#spHint").onclick=()=>{hintLvl++;$("#hintL").innerHTML=`<span class="en" style="letter-spacing:4px">${v.en.split("").map((c,k)=>c===" "?"&nbsp;&nbsp;":(k<hintLvl?c:"_")).join("")}</span> <span>(${v.en.replace(/ /g,"").length} حروف)</span>`};
+    let checked=false;
+    const check=()=>{
+      if(checked){i++;show();return}
+      if(!inp.value.trim()){inp.focus();return}
+      checked=true; inp.disabled=true;
+      const ok=normSpell(inp.value)===v.en.toLowerCase();
+      if(!retry){
+        if(ok&&hintLvl===0){firstOk++;markSpell(v,true);addXP(2)}
+        else{markSpell(v,false);missed.add(v.id);if(!ok)q.push({v,retry:true})}
+      }
+      inp.classList.add(ok?"right":"wrong");
+      $("#spFb").innerHTML=ok
+        ?`<div class="feedback ok">✅ صح${hintLvl&&!retry?" — بس استخدمت تلميح، بترجع لك للمراجعة":""}</div>`
+        :`<div class="feedback bad"><div class="en spword">${diffHTML(inp.value,v.en)}</div><div class="mute">كتبت: <span class="en">${esc(inp.value)}</span></div><div class="mute en" style="margin-top:4px">${v.ex}</div>${retry?"":`<div style="margin-top:4px">بترجع لك آخر الجلسة ومرة ثانية بكرة</div>`}</div>`;
+      if(!ok)speak(v.en,0.8);
+      $("#spGo").textContent="التالي"; $("#spHint").disabled=true; $("#spGo").focus();
+    };
+    $("#spGo").onclick=check;
+    inp.onkeydown=e=>{if(e.key==="Enter"){e.preventDefault();check()}};
+  };
+  const summary=()=>{
+    const wrong=[...missed].map(id=>VOCAB.find(v=>v.id===id));
+    $(el).innerHTML=head(`${title} — النتيجة`)+`<div class="card" style="text-align:center">
+      <h2>${firstOk} / ${firstTotal} صح من أول مرة</h2>
+      ${wrong.length?`<p>هذي الكلمات انضافت لقائمة أخطائك وبترجع لك بكرة:</p><div class="row" style="justify-content:center">${wrong.map(w=>`<span class="pill en">${w.en}</span>`).join("")}</div>`:`<p>👏 ما غلطت ولا كلمة</p>`}
+      <button class="btn" id="spDone" style="width:100%;margin-top:14px">${onDone?"متابعة":"إملاء جديد"}</button></div>`;
+    after();
+    $("#spDone").onclick=()=>onDone?onDone():render();
+  };
+  if(!q.length){$(el).innerHTML=`<div class="card mute">ما فيه كلمات للإملاء الحين.</div>`;return}
+  show();
+}
+function spellPick(n=10,cat=""){
+  const due=shuffle(spellDue().filter(v=>!cat||v.c===cat));
+  const rest=shuffle(learned().filter(v=>(!cat||v.c===cat)&&!due.includes(v)));
+  return [...due,...rest].slice(0,Math.max(n,due.length>15?15:due.length));
+}
+function spellPanel(){
+  const all=spellAll(), due=spellDue();
+  $("#vbox").innerHTML=`<div class="card">
+    <h3>✍️ إملاء</h3>
+    <p class="mute">ينطق لك الكلمة وتكتبها. الكلمات اللي تغلط فيها ترجع لك بعد يوم، ثم يومين، ثم 4 أيام، ثم أسبوع — لين تتقنها.</p>
+    <div class="grid" style="margin:10px 0"><div class="stat"><b>${due.length}</b><span class="mute">مستحقة الحين</span></div><div class="stat"><b>${S.spellMastered||0}</b><span class="mute">أتقنت كتابتها</span></div></div>
+    <button class="btn" id="spStart" style="width:100%">${due.length?`ابدأ (${due.length} كلمة من أخطائك + كلمات ثانية)`:"ابدأ إملاء 10 كلمات"}</button>
+  </div>
+  ${all.length?`<div class="card"><h3>قائمة أخطائي (${all.length})</h3>${all.map(v=>{const s=S.spell[v.id];const d=Math.ceil((s.due-Date.now())/864e5);return`<div class="item" style="cursor:default"><div class="t"><b class="en">${v.en}</b> — ${v.ar}<div class="mute">غلطت فيها ${s.miss||1} ${(s.miss||1)>1?"مرات":"مرة"} · المرحلة ${s.box+1} من ${SPELL_GAPS.length}</div></div><span class="badge ${d<=0?"":"done"}">${d<=0?"الحين":`بعد ${d} يوم`}</span>${sayBtn(v.en)}</div>`}).join("")}</div>`:""}`;
+  $("#spStart").onclick=()=>dictation({list:spellPick(10,vCat),el:"#vbox",onDone:()=>{vMode="spell";Vocab()}});
+}
+
+/* ====== الذكاء الاصطناعي (عبر /api/chat على Vercel) ====== */
+const AI_URL="/api/chat";
+const aiReady=()=>!!user||!!window.__AI_TEST__;
+async function ai(system,messages,max=700){
+  const token=user?await user.getIdToken():"test";
+  const r=await fetch(AI_URL,{method:"POST",headers:{"Content-Type":"application/json",Authorization:"Bearer "+token},body:JSON.stringify({system,messages,max_tokens:max})});
+  const j=await r.json().catch(()=>({}));
+  if(!r.ok)throw new Error(j.error||("HTTP "+r.status));
+  return j.text||"";
+}
+function pj(t){const a=t.indexOf("{"),b=t.lastIndexOf("}");if(a<0||b<a)throw new Error("bad json");return JSON.parse(t.slice(a,b+1))}
+const aiErr=e=>/unauthorized|401/.test(e.message)?"سجّل دخول من جديد":/not allowed|403/.test(e.message)?"إيميلك غير مسموح في إعدادات السيرفر":/404/.test(e.message)?"ملف api/chat.js مو مرفوع على Vercel":"تعذّر الاتصال: "+e.message;
+
+// كلمات جديدة تنضاف من المحادثات
+function ensureCustom(){for(const w of Object.values(S.customWords||{}))if(!VOCAB.some(v=>v.id===w.en))VOCAB.push({id:w.en,en:w.en,ar:w.ar,ex:w.ex||"",c:"g",day:0})}
+function addCustomWords(list){
+  S.customWords=S.customWords||{}; let n=0;
+  for(const w of list){if(!w?.en||VOCAB.some(v=>v.id.toLowerCase()===w.en.toLowerCase()))continue;S.customWords[w.en]={en:w.en,ar:w.ar||"",ex:w.ex||""};n++}
+  ensureCustom();
+  for(const w of list)if(w?.en&&S.customWords[w.en]&&!S.cards[w.en])S.cards[w.en]={box:0,due:Date.now()+864e5};
+  save(); return n;
+}
+
+/* ====== شريك المحادثة ====== */
+const PARTNER="Emma";
+const SCN=[
+ {id:"chat",icon:"☕",t:"دردشة يومية",d:"A relaxed, friendly chat between two people getting to know each other: daily life, work, hobbies, weekends, food, travel. Share a little about yourself too so it feels like a real conversation."},
+ {id:"supplier",icon:"🤝",t:"التفاوض مع مورّد",d:"You are Emma, sales manager of a manufacturing company at a big international trade fair. The learner is a buyer from the UAE. Discuss his needs, prices, minimum order quantity, samples, payment terms, shipping and delivery times. Negotiate realistically - don't give discounts too easily."},
+ {id:"interview",icon:"💼",t:"مقابلة عمل",d:"You are Emma, an HR manager interviewing the learner for a business development position. Ask typical interview questions one at a time (background, strengths, a challenge he solved, why this job, salary expectations) and react naturally to his answers."},
+ {id:"ielts",icon:"🎓",t:"IELTS Speaking",d:"You are an IELTS Speaking examiner. Run a realistic test: Part 1 (4-5 short questions on familiar topics), then Part 2 (give a cue card topic with 3-4 prompts, tell him he has 1 minute to prepare and should speak for 1-2 minutes; while he speaks don't interrupt), then Part 3 (deeper discussion questions related to Part 2). Stay neutral and professional like a real examiner."},
+ {id:"meeting",icon:"📊",t:"اجتماع عمل",d:"You are Emma, a colleague/partner in a business meeting with the learner. Plan a new project together: goals, budget, timeline, responsibilities and risks. Ask for his opinion and sometimes politely disagree so he practises discussing."},
+ {id:"travel",icon:"✈️",t:"سفر وفندق",d:"Role-play travel situations abroad: start as a hotel receptionist at check-in, then you can become a taxi driver or restaurant waiter as the situation develops. Include small realistic problems (room not ready, wrong order) for him to solve."},
+ {id:"free",icon:"💬",t:"موضوع حر",d:"Ask the learner what he would like to talk about today, then have an engaging conversation on that topic, asking follow-up questions."}
+];
+const talkSystem=sc=>`You are ${PARTNER}, a friendly native English speaker acting as a spoken-English conversation partner for an Arabic-speaking learner from the UAE (intermediate level, around B1-B2, business background).
+SCENARIO: ${sc.d}
+RULES:
+- This is a spoken conversation. Keep each reply short and natural: 1-3 sentences, under 45 words. Ask ONE question at a time to keep him talking - he should speak more than you.
+- Use clear, natural everyday English at his level; occasionally use a useful new word or expression.
+- His messages come from speech recognition: ignore punctuation/capitalisation and obvious recognition errors. Never correct those.
+- Corrections: if his last message had a real grammar or word-choice mistake, put a corrected natural version in "fix" and a very short Arabic explanation in "fix_ar". Otherwise both "". Don't mention corrections inside "reply".
+- Messages in square brackets like [START] or [TIME_UP] are signals from the app, not from him.
+- Respond ONLY with one JSON object, no other text:
+{"reply":"your spoken reply","ar":"Arabic translation of reply","fix":"","fix_ar":"","hints":["a short possible answer he could say","another possible answer"]}`;
+const REPORT_SYS=`You are an expert IELTS speaking examiner and English coach. You will receive the transcript of a spoken practice conversation between an Arabic-speaking learner (LEARNER, from speech recognition - ignore punctuation and obvious recognition errors) and a partner (PARTNER). Assess ONLY the learner. Pronunciation cannot be assessed from text, so don't score it.
+Respond ONLY with one JSON object:
+{"band":6.0,"scores":{"fluency":6.0,"vocabulary":6.0,"grammar":5.5,"coherence":6.0},
+"summary_ar":"2-3 sentences in Arabic: overall level and the single most important thing to improve",
+"strengths_ar":["..."],
+"mistakes":[{"you":"exact phrase he said","better":"natural corrected version","why_ar":"short Arabic reason"}],
+"phrases":[{"en":"useful natural phrase he could have used","ar":"meaning"}],
+"new_words":[{"en":"word","ar":"Arabic meaning","ex":"example sentence"}],
+"next_tip_ar":"one concrete practice tip in Arabic"}
+Use IELTS bands in 0.5 steps. Max 6 mistakes (most important first), max 5 phrases, max 5 new_words (useful words related to the topic that he didn't use).`;
+
+let C=null;
+function TalkTab(){
+  if(C&&C.active){renderTalk();return}
+  const hist=(S.talks||[]).slice(-10).reverse();
+  const totalMin=Math.round((S.talks||[]).reduce((a,t)=>a+(t.mins||0),0));
+  const suggest=SCN[(S.doneDays||0)%(SCN.length-1)];
+  if(!aiReady()){
+    $("#app").innerHTML=`<div class="card" style="text-align:center"><div style="font-size:44px">🗣️</div><h2>محادثة مع ${PARTNER}</h2>
+      <p>تكلم بصوتك مع شريكة محادثة بالذكاء الاصطناعي لمدة 10 دقائق، تصحح أخطاءك وتعطيك تقرير IELTS بالنهاية.</p>
+      <p class="mute">${FB_ON?"سجّل دخول عشان تبدأ.":"تحتاج تفعيل Firebase ورفع ملف api/chat.js على Vercel (الخطوات عندك في المحادثة)."}</p>
+      ${FB_ON?`<button class="btn" id="tlog">تسجيل الدخول</button>`:""}</div>`;
+    const b=$("#tlog"); if(b)b.onclick=()=>$("#authBtn").click();
+    return;
+  }
+  C={sc:suggest.id,mins:10};
+  const draw=()=>{
+    $("#app").innerHTML=`<div class="card"><h2>🗣️ محادثة مع ${PARTNER}</h2>
+      <p class="mute">تكلم بصوتك، وهي ترد عليك بصوت. كل ما تغلط تطلع لك الجملة الصحيحة تحت كلامك، وفي النهاية تقرير كامل بالـ Band.</p>
+      <div class="grid" style="margin:10px 0"><div class="stat"><b>${(S.talks||[]).length}</b><span class="mute">محادثة</span></div><div class="stat"><b>${totalMin}</b><span class="mute">دقيقة كلام</span></div></div></div>
+    <div class="card"><h3>اختر الموقف</h3><div class="scn">${SCN.map(s=>`<button class="scnb ${s.id===C.sc?"on":""}" data-s="${s.id}"><span>${s.icon}</span>${s.t}${s.id===suggest.id?'<em>مقترح اليوم</em>':""}</button>`).join("")}</div>
+      <h3 style="margin-top:14px">المدة</h3><div class="seg" id="tm">${[5,10,15].map(m=>`<button data-m="${m}" class="${m===C.mins?"on":""}">${m} دقائق</button>`).join("")}</div>
+      <button class="btn" id="tgo" style="width:100%">📞 ابدأ المحادثة</button>
+      <p class="mute" style="font-size:13px;margin-bottom:0">${SR?"استخدم سماعة أو مكان هادي. المايك يشتغل تلقائياً بعد ما تخلص ${PARTNER} كلامها.":"متصفحك ما يدعم المايك، تقدر تكتب ردودك."}</p></div>
+    ${hist.length?`<div class="card"><h3>محادثاتك السابقة</h3>${hist.map((t,i)=>{const s=SCN.find(x=>x.id===t.sc)||SCN[0];return`<div class="item" data-h="${(S.talks.length-1-i)}"><div class="t">${s.icon} ${s.t}<div class="mute">${t.date} · ${Math.round(t.mins)} دقيقة · ${t.words} كلمة</div></div>${t.band?`<span class="badge done">Band ${(+t.band).toFixed(1)}</span>`:""}</div>`}).join("")}</div>`:""}`;
+    document.querySelectorAll(".scnb").forEach(b=>b.onclick=()=>{C.sc=b.dataset.s;draw()});
+    $("#tm").onclick=e=>{const b=e.target.closest("button");if(!b)return;C.mins=+b.dataset.m;draw()};
+    $("#tgo").onclick=()=>startTalk(C.sc,C.mins);
+    document.querySelectorAll("[data-h]").forEach(it=>it.onclick=()=>{const t=S.talks[+it.dataset.h];if(t.report)showReport(t.report,t,false)});
+  };
+  draw();
+}
+function startTalk(scId,mins){
+  const sc=SCN.find(s=>s.id===scId);
+  C={active:true,sc,mins,msgs:[],log:[],ends:0,started:0,waiting:false,ending:false,words:0,turns:0,hands:true,hints:[]};
+  renderTalk();
+  C.timer=setInterval(talkTick,1000);
+  talkTurn("[START] Greet the learner warmly in one or two sentences and open the scenario with a first question.",true);
+}
+function renderTalk(){
+  $("#app").innerHTML=`<div class="talkbar">
+      <div class="row" style="flex:1;gap:10px"><div class="avatar">E</div><div><b>${PARTNER}</b><div class="mute" style="font-size:13px">${C.sc.icon} ${C.sc.t}</div></div></div>
+      <span class="pill en" id="ttime">${C.mins}:00</span><button class="btn bad" id="tend" style="padding:7px 12px">إنهاء</button>
+    </div>
+    <div id="chat"></div>
+    <div class="talkin">
+      <div id="thint"></div>
+      <div class="row" style="flex-wrap:nowrap">
+        <button class="mic small" id="tmic">🎤</button>
+        <input id="ttxt" class="en" dir="ltr" placeholder="${SR?"تكلم أو اكتب…":"اكتب ردك…"}" autocomplete="off">
+        <button class="btn" id="tsend">➤</button>
+      </div>
+      <div class="row" style="justify-content:space-between;margin-top:6px">
+        <button class="linkb" id="thelp">💡 وش أقول؟</button>
+        ${SR?`<label class="mute" style="font-size:13px"><input type="checkbox" id="thands" ${C.hands?"checked":""}> مايك تلقائي</label>`:""}
+      </div>
+    </div>`;
+  const chat=$("#chat"); C.log.forEach(e=>chat.insertAdjacentHTML("beforeend",bubble(e)));
+  chat.scrollTop=chat.scrollHeight;
+  $("#tend").onclick=()=>{if(confirm("تنهي المحادثة وتشوف التقرير؟"))finishTalk()};
+  $("#tmic").onclick=()=>{if(rec){rec.stop();return}speechSynthesis.cancel();talkListen()};
+  const send=()=>{const v=$("#ttxt").value.trim();if(!v||C.waiting)return;$("#ttxt").value="";if(rec)rec.abort?.();talkTurn(v)};
+  $("#tsend").onclick=send; $("#ttxt").onkeydown=e=>{if(e.key==="Enter")send()};
+  $("#thelp").onclick=()=>{$("#thint").innerHTML=C.hints?.length?`<div class="hintbox">${C.hints.map(h=>`<button class="hintb en" data-h="${esc(h)}">${esc(h)}</button>`).join("")}<div class="mute" style="font-size:12px">اضغط على الجملة تسمعها، وبعدين قلها بأسلوبك</div></div>`:""; document.querySelectorAll(".hintb").forEach(b=>b.onclick=()=>speak(b.dataset.h,0.85))};
+  const hb=$("#thands"); if(hb)hb.onchange=()=>{C.hands=hb.checked};
+}
+function bubble(e){
+  if(e.who==="ai")return `<div class="bub ai"><div class="en">${esc(e.text)}</div><div class="bact"><button class="say sm" data-say="${esc(e.text)}">🔊</button>${e.ar?`<button class="linkb" onclick="this.parentNode.nextElementSibling.hidden=!this.parentNode.nextElementSibling.hidden">ترجمة</button>`:""}</div>${e.ar?`<div class="ar mute" hidden>${esc(e.ar)}</div>`:""}</div>`;
+  if(e.who==="me")return `<div class="bub me"><div class="en">${esc(e.text)}</div>${e.fix?`<div class="fix"><span class="en">✏️ ${esc(e.fix)}</span>${e.fix_ar?`<div>${esc(e.fix_ar)}</div>`:""}</div>`:""}</div>`;
+  if(e.who==="err")return `<div class="bub err">${esc(e.text)} <button class="linkb" id="tretry">إعادة المحاولة</button></div>`;
+  return "";
+}
+function addLog(e){C.log.push(e);const chat=$("#chat");if(chat){chat.insertAdjacentHTML("beforeend",bubble(e));chat.scrollTop=chat.scrollHeight}}
+function setTyping(on){const chat=$("#chat");if(!chat)return;const t=$("#typing");if(on&&!t){chat.insertAdjacentHTML("beforeend",`<div class="bub ai" id="typing"><span class="dots3"><i></i><i></i><i></i></span></div>`);chat.scrollTop=chat.scrollHeight}if(!on&&t)t.remove()}
+async function talkTurn(text,signal=false,{auto=true}={}){
+  if(!C?.active)return;
+  if(!signal){
+    const me={who:"me",text};addLog(me);C.lastMe=me;
+    C.words+=text.split(/\s+/).filter(Boolean).length;C.turns++;
+  }
+  C.msgs.push({role:"user",content:text});
+  C.waiting=true; setTyping(true); $("#thint")&&($("#thint").innerHTML="");
+  try{
+    const raw=await ai(talkSystem(C.sc),C.msgs.slice(-40),450);
+    if(!C?.active)return;
+    let d; try{d=pj(raw)}catch(e){d={reply:raw.replace(/[{}]/g,"").trim()}}
+    C.msgs.push({role:"assistant",content:raw});
+    setTyping(false); C.waiting=false;
+    if(!signal&&d.fix&&C.lastMe){C.lastMe.fix=d.fix;C.lastMe.fix_ar=d.fix_ar||"";const bs=document.querySelectorAll(".bub.me");const last=bs[bs.length-1];if(last)last.insertAdjacentHTML("beforeend",`<div class="fix"><span class="en">✏️ ${esc(d.fix)}</span>${d.fix_ar?`<div>${esc(d.fix_ar)}</div>`:""}</div>`)}
+    C.hints=d.hints||[];
+    if(!C.started){C.started=Date.now();C.ends=Date.now()+C.mins*60000}
+    addLog({who:"ai",text:d.reply||"",ar:d.ar||""});
+    speakThen(d.reply||"",()=>{
+      if(!C?.active)return;
+      if(C.finishAfter){C.finishAfter=false;finishTalk();return}
+      if(auto&&C.hands&&!C.ending&&SR)talkListen();
+    });
+  }catch(e){
+    if(!C?.active)return;
+    C.msgs.pop(); setTyping(false); C.waiting=false;
+    addLog({who:"err",text:aiErr(e)});
+    const r=$("#tretry"); if(r)r.onclick=()=>{C.log=C.log.filter(x=>x.who!=="err");renderTalk();if(signal)talkTurn(text,true);else{C.log.pop();C.words-=text.split(/\s+/).length;C.turns--;renderTalk();talkTurn(text)}};
+  }
+}
+function speakThen(text,cb){
+  if(!("speechSynthesis" in window)||!text){cb();return}
+  speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(text); u.lang="en-US"; u.rate=0.95; if(voice)u.voice=voice;
+  let done=false; const fin=()=>{if(!done){done=true;cb()}};
+  u.onend=fin; u.onerror=fin; setTimeout(fin,Math.max(4000,text.length*120)); // احتياط إذا ما وصل onend
+  speechSynthesis.speak(u);
+}
+function talkListen(){
+  if(!SR||rec||!C?.active||C.waiting)return;
+  rec=new SR(); rec.lang="en-US"; rec.continuous=false; rec.interimResults=true;
+  let fin="";
+  const mic=$("#tmic"), inp=$("#ttxt");
+  if(mic)mic.classList.add("rec"); if(inp)inp.placeholder="أسمعك… تكلم";
+  rec.onresult=e=>{let it="";fin="";for(const r of e.results){if(r.isFinal)fin+=r[0].transcript;else it+=r[0].transcript}if(inp)inp.value=(fin+" "+it).trim()};
+  rec.onerror=e=>{if(e.error==="not-allowed")toast("اسمح للموقع باستخدام المايك")};
+  rec.onend=()=>{rec=null;const m=$("#tmic"),i=$("#ttxt");if(m)m.classList.remove("rec");if(i)i.placeholder="تكلم أو اكتب…";
+    const said=(fin||i?.value||"").trim(); if(said&&C?.active&&!C.waiting){if(i)i.value="";talkTurn(said)}};
+  rec.start();
+}
+function talkTick(){
+  if(!C?.active){clearInterval(C?.timer);return}
+  const el=$("#ttime"); if(!C.ends){return}
+  const left=Math.max(0,Math.round((C.ends-Date.now())/1000));
+  if(el){el.textContent=`${Math.floor(left/60)}:${String(left%60).padStart(2,"0")}`;el.classList.toggle("warn",left<=60)}
+  if(left<=0&&!C.ending){
+    C.ending=true; if(rec)rec.abort?.();
+    if(C.waiting)C.finishAfter=true;
+    else talkTurn("[TIME_UP] Our time is up. Say a warm, short goodbye (1-2 sentences) and mention one thing he did well.",true,{auto:false}).then(()=>{C&&(C.finishAfter=true)});
+  }
+}
+function stopTalk(){if(!C)return;C.active=false;clearInterval(C.timer);speechSynthesis.cancel();if(rec){rec.abort?.();rec=null}}
+async function finishTalk(){
+  if(!C||C.reporting)return; C.reporting=true;
+  const snap=C; stopTalk(); C=null;
+  const mins=snap.started?(Date.now()-snap.started)/60000:0;
+  const transcript=snap.log.filter(e=>e.who!=="err").map(e=>(e.who==="me"?"LEARNER: ":"PARTNER: ")+e.text).join("\n");
+  const rec_={date:today(),sc:snap.sc.id,mins:Math.min(mins,snap.mins),words:snap.words,turns:snap.turns};
+  if(snap.turns<2){
+    $("#app").innerHTML=`<div class="card" style="text-align:center"><h3>المحادثة كانت قصيرة جداً للتقييم</h3><button class="btn" id="bk">رجوع</button></div>`;
+    $("#bk").onclick=()=>render(); return;
+  }
+  $("#app").innerHTML=`<div class="card" style="text-align:center;padding:40px 16px"><div class="dots3 big"><i></i><i></i><i></i></div><p>${PARTNER} تجهز تقريرك…</p></div>`;
+  S.talks=S.talks||[]; S.talks.push(rec_); if(S.talks.length>40)S.talks=S.talks.slice(-40);
+  addXP(Math.round(rec_.mins*3)+10);
+  try{
+    const rep=pj(await ai(REPORT_SYS,[{role:"user",content:`Scenario: ${snap.sc.t}\nDuration: ${Math.round(mins)} minutes\n\nTRANSCRIPT:\n${transcript}`}],1600));
+    rec_.band=rep.band; rec_.report=rep; save();
+    showReport(rep,rec_,true);
+  }catch(e){
+    save();
+    $("#app").innerHTML=`<div class="card" style="text-align:center"><h3>ما قدرت أجهز التقرير</h3><p class="mute">${esc(aiErr(e))}</p><p>تكلمت ${rec_.words} كلمة في ${Math.round(rec_.mins)} دقيقة 👏</p><button class="btn" id="bk">رجوع</button></div>`;
+    $("#bk").onclick=()=>render();
+  }
+}
+function showReport(rep,meta,fresh){
+  const sc=rep.scores||{}, s=SCN.find(x=>x.id===meta.sc)||SCN[0];
+  const crit=[["fluency","Fluency"],["vocabulary","Vocabulary"],["grammar","Grammar"],["coherence","Coherence"]];
+  $("#app").innerHTML=`<div class="card" style="text-align:center">
+      <p class="mute">${s.icon} ${s.t} · ${Math.round(meta.mins)} دقيقة · ${meta.words} كلمة</p>
+      <div class="band">${(+rep.band||0).toFixed(1)}</div><p><b>Speaking Band (تقديري)</b></p>
+      <div class="grid4">${crit.map(([k,l])=>`<div><b>${sc[k]!=null?(+sc[k]).toFixed(1):"-"}</b><span>${l}</span></div>`).join("")}</div>
+      <p style="text-align:start">${esc(rep.summary_ar||"")}</p></div>
+    ${rep.strengths_ar?.length?`<div class="card"><h3>👍 نقاط قوتك</h3><ul>${rep.strengths_ar.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>`:""}
+    ${rep.mistakes?.length?`<div class="card"><h3>✏️ أخطاء تصحّحها</h3>${rep.mistakes.map(m=>`<div class="mist"><div class="en wrongt">✗ ${esc(m.you)}</div><div class="en rightt">✓ ${esc(m.better)} ${sayBtn(m.better)}</div><div class="mute">${esc(m.why_ar||"")}</div></div>`).join("")}</div>`:""}
+    ${rep.phrases?.length?`<div class="card"><h3>💬 عبارات كان ممكن تستخدمها</h3>${rep.phrases.map(p=>`<div class="item" style="cursor:default"><div class="t"><span class="en">${esc(p.en)}</span><div class="mute">${esc(p.ar||"")}</div></div>${sayBtn(p.en)}</div>`).join("")}</div>`:""}
+    ${rep.new_words?.length?`<div class="card"><h3>📚 كلمات جديدة لك</h3>${rep.new_words.map(w=>`<div class="item" style="cursor:default"><div class="t"><b class="en">${esc(w.en)}</b> — ${esc(w.ar||"")}<div class="mute en">${esc(w.ex||"")}</div></div>${sayBtn(w.en)}</div>`).join("")}
+      <button class="btn ghost" id="addw" style="width:100%;margin-top:8px">أضفها لبطاقاتي والإملاء</button></div>`:""}
+    ${rep.next_tip_ar?`<div class="card"><h3>🎯 تمرين للمرة الجاية</h3><p>${esc(rep.next_tip_ar)}</p></div>`:""}
+    <button class="btn" id="bk" style="width:100%">رجوع للمحادثات</button>`;
+  scrollTo(0,0);
+  const aw=$("#addw"); if(aw)aw.onclick=()=>{const n=addCustomWords(rep.new_words);aw.disabled=true;aw.textContent=n?`✅ انضافت ${n} كلمات`:"✅ موجودة عندك";};
+  $("#bk").onclick=()=>{tab="talk";render()};
+}
+
+/* ====== تصحيح IELTS بالذكاء الاصطناعي ====== */
+const W_SYS=type=>`You are a certified IELTS examiner. Grade this ${type==="letter"?"General Training Writing Task 1 letter (criteria: Task Achievement, Coherence & Cohesion, Lexical Resource, Grammatical Range & Accuracy)":"Writing Task 2 essay (criteria: Task Response, Coherence & Cohesion, Lexical Resource, Grammatical Range & Accuracy)"} strictly according to the public IELTS band descriptors. Penalise under-length (${type==="letter"?150:250} words minimum). The writer is an Arabic speaker; give feedback in Arabic.
+Respond ONLY with one JSON object:
+{"band":6.0,"tr":6.0,"cc":6.0,"lr":6.0,"gra":5.5,"summary_ar":"...","strengths_ar":["..."],"improve_ar":["..."],"corrections":[{"you":"exact text","better":"corrected","why_ar":"..."}],"improved":"a rewritten version of his weakest paragraph at band 7+"}
+Bands in 0.5 steps. Max 6 corrections.`;
+const S_SYS=`You are a certified IELTS Speaking examiner. Below are the learner's answers (from speech recognition: ignore punctuation and obvious recognition errors; pronunciation cannot be assessed). Grade Fluency & Coherence, Lexical Resource and Grammatical Range & Accuracy, and give an overall band (0.5 steps). Feedback in Arabic.
+Respond ONLY with one JSON object:
+{"band":6.0,"fc":6.0,"lr":6.0,"gra":5.5,"summary_ar":"...","corrections":[{"you":"...","better":"...","why_ar":"..."}]}
+Max 5 corrections.`;
+function aiGradeHTML(d,keys){
+  return `<div class="exbox" style="text-align:center"><div class="band" style="font-size:44px">${(+d.band).toFixed(1)}</div>
+    <div class="grid4">${keys.map(([k,l])=>`<div><b>${d[k]!=null?(+d[k]).toFixed(1):"-"}</b><span>${l}</span></div>`).join("")}</div></div>
+    <p>${esc(d.summary_ar||"")}</p>
+    ${d.strengths_ar?.length?`<p><b>👍</b> ${d.strengths_ar.map(esc).join(" · ")}</p>`:""}
+    ${d.improve_ar?.length?`<p><b>🎯 حسّن:</b></p><ul>${d.improve_ar.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`:""}
+    ${d.corrections?.length?d.corrections.map(m=>`<div class="mist"><div class="en wrongt">✗ ${esc(m.you)}</div><div class="en rightt">✓ ${esc(m.better)}</div><div class="mute">${esc(m.why_ar||"")}</div></div>`).join(""):""}
+    ${d.improved?`<details><summary>نسخة محسّنة من فقرتك</summary><p class="en" style="line-height:1.8">${esc(d.improved)}</p></details>`:""}`;
+}
+
+header(); render();
+// يحدّث الرئيسية تلقائياً إذا بقت الصفحة مفتوحة لين بعد منتصف الليل
+let lastSeen=today();
+setInterval(()=>{if(today()!==lastSeen){lastSeen=today();if(tab==="home"&&!D)render()}},60000);
+document.addEventListener("visibilitychange",()=>{if(!document.hidden&&today()!==lastSeen){lastSeen=today();if(tab==="home"&&!D)render()}});
+</script>
+</body>
